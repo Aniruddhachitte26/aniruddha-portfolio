@@ -112,7 +112,7 @@ const About = () => {
                                 {/* Image - Increased size, removed effects */}
                                 <div className="relative rounded-lg overflow-hidden w-72 h-72 md:w-80 md:h-80 shadow-lg">
                                     <img
-                                        src="aniruddha-portfolio\public\Profile.jpeg"
+                                        src="/aniruddha-portfolio/Profile.jpeg"
                                         alt="Aniruddha Chitte"
                                         className="w-full h-full object-cover object-center"
                                     />
