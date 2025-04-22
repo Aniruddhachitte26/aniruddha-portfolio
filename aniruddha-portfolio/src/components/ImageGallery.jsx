@@ -86,7 +86,7 @@ const ImageGallery = () => {
     },
     {
       id: 7,
-      src: "aniruddha-portfolio\public\images\gallery\img5.png",
+      src: "/aniruddha-portfolio/images/gallery/img5.png",
       alt: "Boston City Exploration",
       title: "Exploring Boston",
       description:
