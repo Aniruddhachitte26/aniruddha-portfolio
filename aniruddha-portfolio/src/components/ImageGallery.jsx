@@ -53,7 +53,7 @@ const ImageGallery = () => {
   const galleryImages = [
     {
       id: 1,
-      src: "aniruddha-portfolio\public\images\gallery\img6.jpeg",
+      src: "/aniruddha-portfolio/public/images/gallery/img6.jpeg",
       alt: "Graduation Day - Savitribai Phule Pune University",
       title: "Graduation Day 2023",
       description:
@@ -61,7 +61,7 @@ const ImageGallery = () => {
     },
     {
       id: 2,
-      src: "aniruddha-portfolio\public\images\gallery\img4.png",
+      src: "/aniruddha-portfolio/public/images/gallery/img4.png",
       alt: "Northeastern University Campus",
       title: "Northeastern University Journey Begins",
       description:
@@ -69,7 +69,7 @@ const ImageGallery = () => {
     },
     {
       id: 3,
-      src: "aniruddha-portfolio\public\images\gallery\img1.jpeg",
+      src: "/aniruddha-portfolio/public/images/gallery/img1.jpeg",
       alt: "Team photo With Professor and colleagues",
       title: "Northeastern University",
       description:
@@ -78,7 +78,7 @@ const ImageGallery = () => {
 
     {
       id: 4,
-      src: "aniruddha-portfolio\public\images\gallery\img2.jpeg",
+      src: "/aniruddha-portfolio/public/images/gallery/img2.jpeg",
       alt: "Northeastern University Campus",
       title: "Northeastern University Journey Begins",
       description:
