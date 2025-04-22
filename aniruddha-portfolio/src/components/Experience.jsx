@@ -45,7 +45,7 @@ const Experience = () => {
             company: "Atos",
             location: "Pune, India",
             duration: "February 2024 - May 2024",
-            logo: "/images/atos-logo.jpeg",
+            logo: "aniruddha-portfolio\public\images\atos-logo.jpeg",
             description: [
                 "Developed scalable backend solutions by designing and deploying REST APIs, ensuring seamless integration and high performance, with rigorous testing and validation using Postman.",
                 "Migrated employee portal features to a cloud-native architecture, enhancing system scalability and performance, and minimizing downtime by taking advantage of cloud services and automation.",
@@ -58,7 +58,7 @@ const Experience = () => {
             company: "Aiadventures LLP",
             location: "Pune, India",
             duration: "January 2023 - June 2023",
-            logo: "/images/ai-logo.png",
+            logo: "aniruddha-portfolio\public\images\ai-logo.png",
             description: [
                 "Created innovative machine learning solutions, generating actionable insights, advancing market segmentation strategies, and supporting expansion into two new customer demographics.",
                 "Spearheaded optimization of CNN models, increasing classification accuracy to 94% through hyperparameter tuning, and rolled out scalable solutions to elevate processing efficiency for real-world classification tasks.",
@@ -74,7 +74,7 @@ const Experience = () => {
             degree: "Master of Science in Computer Software Engineering",
             location: "Boston, MA",
             duration: "September 2024 - May 2026",
-            logo: "/images/northeastern-logo.png",
+            logo: "aniruddha-portfolio\public\images\northeastern-logo.png",
             description: [
                 "Currently pursuing advanced studies in software engineering, focusing on modern development methodologies and practices.",
                 "Coursework includes Web Design and User Experience, Network Structures & Cloud Computing, User Experience Design and Testing (UI/UX), Database Management and Design, Program structure and Algorithm, Data Science and Application Engineering."
@@ -85,7 +85,7 @@ const Experience = () => {
             degree: "Bachelor of Technology in Electronics and Telecommunication",
             location: "Maharashtra, India",
             duration: "August 2019 - June 2023",
-            logo: "/images/sppu-logo.jpeg",
+            logo: "aniruddha-portfolio\public\images\sppu-logo.jpeg",
             description: [
                 "Completed undergraduate studies with focus on both hardware and software aspects of technology systems.",
                 "Coursework included Web Technology, Advanced Java, Computer Networks, Big Data Analysis, Data Structures, Data Science, Machine Learning, Artificial Intelligence, and Object-Oriented Programming."
