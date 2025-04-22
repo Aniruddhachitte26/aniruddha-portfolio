@@ -79,7 +79,7 @@ const Projects = () => {
             title: "Drug Management System",
             description: "A centralized system for pharmaceutical companies to streamline case management and ensure regulatory compliance.",
             longDescription: "Collaborated with a team to develop a centralized Drug Management System (DMS) aimed at streamlining case management for pharmaceutical companies. The system focuses on efficiently handling adverse event reporting and case tracking for drugs and devices, ensuring compliance with regulatory standards such as the FDA, providing data analytics and decision-making support to enhance drug safety, and facilitating seamless communication between manufacturers, healthcare providers, and regulatory agencies.",
-            image: "aniruddha-portfolio/images/projects/Drug.jpg",
+            image: "/aniruddha-portfolio/images/projects/Drug.jpg",
             github: "#",
             demo: "#",
             technologies: ["MySQL", "Tableau", "Microsoft Azure", "GUI", "UDF"],
