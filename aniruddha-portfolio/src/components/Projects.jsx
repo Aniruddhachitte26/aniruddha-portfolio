@@ -48,7 +48,7 @@ const Projects = () => {
             longDescription: "StockWise is a comprehensive web application designed for stock trading, portfolio management, and market analysis. Built with React, Node.js, and MongoDB, it provides users with tools to track stocks, manage investments, view market news, and interact with an AI assistant for financial insights. Features include secure authentication with role-based access (users, brokers, admins), portfolio management for tracking owned stocks and performance, watchlist functionality, detailed stock information with charts, trading simulation, integrated AI chatbot, virtual wallet system with Stripe integration, and a complete user verification workflow. The platform delivers a responsive UI built with React and Bootstrap, and implements state management via Redux Toolkit.",
             image: "/aniruddha-portfolio/images/projects/stockwiseproject.png",
             github: "https://github.com/Aniruddhachitte26/StockWise",
-            demo: "#",
+            demo: "https://stockwise-demo.sleepysoul.cc",
             technologies: ["React", "Node.js", "Redux Toolkit", "MongoDB", "Stripe","Bootstrap", "Express", "JWT ", "NodeMailer", "Multer", "Radis"],
             category: "web"
         },
