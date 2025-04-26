@@ -106,7 +106,7 @@ const Contact = () => {
         {
             icon: <FaGithub />,
             label: 'GitHub',
-            value: 'github.com/aniruddhachitte',
+            value: 'github.com/Aniruddhachitte26',
             link: 'https://github.com/Aniruddhachitte26'
         },
         {
