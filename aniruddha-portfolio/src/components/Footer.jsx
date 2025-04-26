@@ -34,7 +34,7 @@ const Footer = () => {
         }
     ];
 
-    // Scroll to top function
+    
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
