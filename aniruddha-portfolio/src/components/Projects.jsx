@@ -48,7 +48,7 @@ const Projects = () => {
             longDescription: "StockWise is a comprehensive web application designed for stock trading, portfolio management, and market analysis. Built with React, Node.js, and MongoDB, it provides users with tools to track stocks, manage investments, view market news, and interact with an AI assistant for financial insights. Features include secure authentication with role-based access (users, brokers, admins), portfolio management for tracking owned stocks and performance, watchlist functionality, detailed stock information with charts, trading simulation, integrated AI chatbot, virtual wallet system with Stripe integration, and a complete user verification workflow. The platform delivers a responsive UI built with React and Bootstrap, and implements state management via Redux Toolkit.",
             image: "/aniruddha-portfolio/images/projects/stockwiseproject.png",
             github: "https://github.com/Aniruddhachitte26/StockWise",
-            demo: "https://stockwise-demo.sleepysoul.cc",
+            demo: "https://stockwise-frontend-sqh8.onrender.com",
             technologies: ["React", "Node.js", "Redux Toolkit", "MongoDB", "Stripe","Bootstrap", "Express", "JWT ", "NodeMailer", "Multer", "Radis"],
             category: "web"
         },
@@ -59,7 +59,7 @@ const Projects = () => {
             longDescription: "Job Portal is a full-stack web application that connects job seekers with potential employers. Built with React, Redux and Material UI on the frontend and Node.js, Express and MongoDB on the backend, the platform features separate interfaces for administrators and employees with role-based access control. Administrators can manage users and job postings, while employees can browse job listings with search and filter capabilities and view detailed company profiles. The application includes secure authentication, responsive design for all devices, intuitive navigation with React Router, and comprehensive state management using Redux. The backend implements secure user management, job listing APIs, and image upload functionality.",
             image: "/aniruddha-portfolio/images/projects/JobPortal.png",
             github: "https://github.com/Aniruddhachitte26/Job-Portal-Web-Application",
-            demo: "#",
+            demo: " https://job-portal-web-application-frontend.onrender.com",
             technologies: ["React", "Redux & Redux Toolkit", "Axios", "Multer", "Node.js", "Express", "MongoDB", "Material UI"],
             category: "web"
         },
