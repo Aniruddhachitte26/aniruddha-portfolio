@@ -1,56 +1,23 @@
 // components/Experience.jsx
-import React, { useState, useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import React, { useState } from 'react';
 import { FaBriefcase, FaGraduationCap } from 'react-icons/fa';
 
 const Experience = () => {
-    const controls = useAnimation();
-    const [ref, inView] = useInView({
-        threshold: 0.1,
-        triggerOnce: true
-    });
     const [activeTab, setActiveTab] = useState('work');
-
-    useEffect(() => {
-        if (inView) {
-            controls.start('visible');
-        }
-    }, [controls, inView]);
-
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.3
-            }
-        }
-    };
-
-    const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: { duration: 0.5 }
-        }
-    };
 
     // Work Experience Data
     const workExperience = [
         {
-            title: "Software Engineer Intern",
+            title: "Software Engineer",
             company: "Atos",
             location: "Pune, India",
-            duration: "February 2024 - May 2024",
+            duration: "July 2023 - August 2024",
             logo: "/aniruddha-portfolio/images/atos-logo.jpeg",
             description: [
-                "Developed scalable backend solutions by designing and deploying REST APIs, ensuring seamless integration and high performance, with rigorous testing and validation using Postman.",
-                "Migrated employee portal features to a cloud-native architecture, enhancing system scalability and performance, and minimizing downtime by taking advantage of cloud services and automation.",
-                "Led development of automated workflows for HR processes, executing serverless functions and cloud-based services, improving operational efficiency by 20%.",
-                "Collaborated on developing a Microservices architecture for a web application, utilizing CI/CD pipeline to enhance deployment, system scalability, and boost system reliability by 30%."
+                "Engineered scalable RESTful APIs and microservices with Java (Spring Boot), enabling modular architecture and efficient service communication, resulting in a 30% improvement in maintainability and faster developer onboarding.",
+                "Crafted high-performance, responsive user interfaces with React.js, connecting frontend to backend via Axios and managing state with Redux, cutting page load times by 25% and boosting user engagement.",
+                "Adopted Test-Driven Development (TDD) with JUnit and conducted API testing using Postman, increasing test coverage and minimizing system-level issues during release cycles.",
+                "Deployed applications to AWS (EC2, S3) through CI/CD pipelines, ensuring smooth and consistent delivery across development, staging, and production environments."
             ]
         },
         {
@@ -60,9 +27,9 @@ const Experience = () => {
             duration: "January 2023 - June 2023",
             logo: "/aniruddha-portfolio/images/ai-logo.png",
             description: [
-                "Created innovative machine learning solutions, generating actionable insights, advancing market segmentation strategies, and supporting expansion into two new customer demographics.",
-                "Spearheaded optimization of CNN models, increasing classification accuracy to 94% through hyperparameter tuning, and rolled out scalable solutions to elevate processing efficiency for real-world classification tasks.",
-                "Designed and refined a text summarization pipeline employing transformer-based models and Generative AI techniques, streamlining customer feedback analysis, mitigating manual effort by 40%, and strengthening product strategy insights."
+                "Designed machine learning models in Scikit-learn and PyTorch to generate actionable insights, supporting advanced market segmentation and contributing to the expansion into two new customer demographics.",
+                "Applied clustering and classification techniques to segment user behavior across 10+ key attributes, leveraging CNNs and tabular models to identify high-value customer cohorts and increase targeted campaign efficiency by 20%.",
+                "Developed a text summarization pipeline powered by Hugging Face Transformers, automating customer feedback analysis, uncovering demographic trends, and reducing manual review time by 40%."
             ]
         }
     ];
@@ -94,34 +61,25 @@ const Experience = () => {
     ];
 
     return (
-        <section id="experience" className="py-20 lg:py-32 bg-cream/50 dark:bg-lightNavy/30">
+        <section id="experience" className="pt-6 pb-20 lg:pt-12 lg:pb-32 bg-cream">
             <div className="container mx-auto px-6">
-                <motion.div
-                    ref={ref}
-                    className="max-w-6xl mx-auto"
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate={controls}
-                >
+                <div className="max-w-6xl mx-auto">
                     {/* Section Title */}
-                    <motion.div className="flex items-center mb-12" variants={itemVariants}>
-                        <h2 className="text-3xl lg:text-4xl font-poppins font-bold text-navy dark:text-white">
+                    <div className="flex items-center mb-12">
+                        <h2 className="text-3xl lg:text-4xl font-poppins font-bold text-navy">
                             My Journey
                         </h2>
                         <div className="ml-4 h-px bg-teal flex-grow max-w-xs"></div>
-                    </motion.div>
+                    </div>
 
                     {/* Tabs */}
-                    <motion.div
-                        className="flex justify-center mb-10"
-                        variants={itemVariants}
-                    >
-                        <div className="bg-cream dark:bg-navy p-1 rounded-lg shadow-md flex">
+                    <div className="flex justify-center mb-10">
+                        <div className="bg-lightNavy p-1 rounded-lg shadow-md flex">
                             <button
                                 onClick={() => setActiveTab('work')}
                                 className={`flex items-center px-4 py-2 rounded-md transition-all duration-300 ${activeTab === 'work'
-                                        ? 'bg-teal/20 text-navy dark:text-white'
-                                        : 'hover:bg-cream/70 dark:hover:bg-lightNavy text-slate dark:text-lightSlate'
+                                    ? 'bg-teal/20 text-navy'
+                                    : 'hover:bg-cream/70 text-slate'
                                     }`}
                             >
                                 <FaBriefcase className="mr-2" />
@@ -130,28 +88,22 @@ const Experience = () => {
                             <button
                                 onClick={() => setActiveTab('education')}
                                 className={`flex items-center px-4 py-2 rounded-md transition-all duration-300 ${activeTab === 'education'
-                                        ? 'bg-teal/20 text-navy dark:text-white'
-                                        : 'hover:bg-cream/70 dark:hover:bg-lightNavy text-slate dark:text-lightSlate'
+                                    ? 'bg-teal/20 text-navy'
+                                    : 'hover:bg-cream/70 text-slate'
                                     }`}
                             >
                                 <FaGraduationCap className="mr-2" />
                                 <span className="font-medium">Education</span>
                             </button>
                         </div>
-                    </motion.div>
+                    </div>
 
                     {/* Timeline */}
-                    <motion.div variants={itemVariants}>
+                    <div>
                         {activeTab === 'work' ? (
                             <div className="space-y-12">
                                 {workExperience.map((exp, index) => (
-                                    <motion.div
-                                        key={index}
-                                        className="relative"
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    >
+                                    <div key={index} className="relative">
                                         {/* Timeline Line */}
                                         {index < workExperience.length - 1 && (
                                             <div className="absolute top-8 left-4 bottom-0 w-0.5 bg-teal/30 z-0"></div>
@@ -160,19 +112,17 @@ const Experience = () => {
                                         <div className="flex">
                                             {/* Timeline Circle */}
                                             <div className="relative z-10">
-                                                <div className="w-8 h-8 bg-cream dark:bg-navy border-2 border-teal rounded-full flex items-center justify-center">
+                                                <div className="w-8 h-8 bg-cream border-2 border-teal rounded-full flex items-center justify-center">
                                                     <div className="w-3 h-3 bg-teal rounded-full"></div>
                                                 </div>
                                             </div>
 
                                             {/* Content */}
-                                            <motion.div
-                                                className="ml-6 bg-white dark:bg-navy shadow-lg dark:shadow-custom p-6 rounded-lg flex-1 z-10"
-                                                whileHover={{ scale: 1.02 }}
-                                                transition={{ duration: 0.3 }}
-                                            >
-                                                <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                                                    <div className="flex items-center">
+                                            <div className="ml-6 bg-lightNavy shadow-lg p-6 rounded-lg flex-1 z-10">
+                                                {/* Header */}
+                                                <div className="flex justify-between items-start mb-6">
+                                                    {/* Left Side: Logo + Title Info */}
+                                                    <div className="flex items-start">
                                                         {/* Company Logo */}
                                                         {exp.logo && (
                                                             <div className="mr-4 w-16 h-16 flex-shrink-0 bg-white rounded-full p-1 shadow-sm overflow-hidden">
@@ -185,41 +135,49 @@ const Experience = () => {
                                                         )}
                                                         
                                                         <div>
-                                                            <h3 className="text-xl font-semibold text-navy dark:text-white">
-                                                                {exp.title}
-                                                            </h3>
+                                                            {/* Title and Duration Row */}
+                                                            <div className="flex justify-between items-center w-full">
+                                                                <h3 className="text-xl font-semibold text-navy">
+                                                                    {exp.title}
+                                                                </h3>
+                                                            </div>
+                                                            
+                                                            {/* Company Name */}
                                                             <h4 className="text-lg font-medium text-teal">
-                                                                {exp.company} - {exp.location}
+                                                                {exp.company}
                                                             </h4>
                                                         </div>
                                                     </div>
-                                                    <span className="text-sm font-fira text-slate dark:text-lightSlate mt-2 md:mt-0">
-                                                        {exp.duration}
-                                                    </span>
+
+                                                    {/* Right Side: Duration and Location */}
+                                                    <div className="text-right">
+                                                        <div className="text-sm font-fira text-slate">
+                                                            {exp.duration}
+                                                        </div>
+                                                        <div className="text-sm font-fira text-slate mt-1">
+                                                            {exp.location}
+                                                        </div>
+                                                    </div>
                                                 </div>
+
+                                                {/* Job Description */}
                                                 <ul className="space-y-2">
                                                     {exp.description.map((item, i) => (
-                                                        <li key={i} className="flex text-slate dark:text-lightSlate">
+                                                        <li key={i} className="flex text-slate">
                                                             <span className="text-teal mr-2 flex-shrink-0">▹</span>
                                                             <span>{item}</span>
                                                         </li>
                                                     ))}
                                                 </ul>
-                                            </motion.div>
+                                            </div>
                                         </div>
-                                    </motion.div>
+                                    </div>
                                 ))}
                             </div>
                         ) : (
                             <div className="space-y-12">
                                 {education.map((edu, index) => (
-                                    <motion.div
-                                        key={index}
-                                        className="relative"
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    >
+                                    <div key={index} className="relative">
                                         {/* Timeline Line */}
                                         {index < education.length - 1 && (
                                             <div className="absolute top-8 left-4 bottom-0 w-0.5 bg-teal/30 z-0"></div>
@@ -228,20 +186,18 @@ const Experience = () => {
                                         <div className="flex">
                                             {/* Timeline Circle */}
                                             <div className="relative z-10">
-                                                <div className="w-8 h-8 bg-cream dark:bg-navy border-2 border-teal rounded-full flex items-center justify-center">
+                                                <div className="w-8 h-8 bg-cream border-2 border-teal rounded-full flex items-center justify-center">
                                                     <div className="w-3 h-3 bg-teal rounded-full"></div>
                                                 </div>
                                             </div>
 
                                             {/* Content */}
-                                            <motion.div
-                                                className="ml-6 bg-white dark:bg-navy shadow-lg dark:shadow-custom p-6 rounded-lg flex-1 z-10"
-                                                whileHover={{ scale: 1.02 }}
-                                                transition={{ duration: 0.3 }}
-                                            >
-                                                <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                                                    <div className="flex items-center">
-                                                        {/* Logo Image */}
+                                            <div className="ml-6 bg-lightNavy shadow-lg p-6 rounded-lg flex-1 z-10">
+                                                {/* Header */}
+                                                <div className="flex justify-between items-start mb-6">
+                                                    {/* Left Side: Logo + Institution Info */}
+                                                    <div className="flex items-start">
+                                                        {/* Logo */}
                                                         {edu.logo && (
                                                             <div className="mr-4 w-16 h-16 flex-shrink-0 bg-white rounded-full p-1 shadow-sm overflow-hidden">
                                                                 <img 
@@ -253,37 +209,45 @@ const Experience = () => {
                                                         )}
                                                         
                                                         <div>
-                                                            <h3 className="text-xl font-semibold text-navy dark:text-white">
+                                                            {/* Institution */}
+                                                            <h3 className="text-xl font-semibold text-navy">
                                                                 {edu.institution}
                                                             </h3>
+                                                            
+                                                            {/* Degree */}
                                                             <h4 className="text-lg font-medium text-teal">
                                                                 {edu.degree}
                                                             </h4>
-                                                            <p className="text-slate dark:text-lightSlate">
-                                                                {edu.location}
-                                                            </p>
                                                         </div>
                                                     </div>
-                                                    <span className="text-sm font-fira text-slate dark:text-lightSlate mt-2 md:mt-0">
-                                                        {edu.duration}
-                                                    </span>
+
+                                                    {/* Right Side: Duration and Location */}
+                                                    <div className="text-right">
+                                                        <div className="text-sm font-fira text-slate">
+                                                            {edu.duration}
+                                                        </div>
+                                                        <div className="text-sm font-fira text-slate mt-1">
+                                                            {edu.location}
+                                                        </div>
+                                                    </div>
                                                 </div>
+
                                                 <ul className="space-y-2">
                                                     {edu.description.map((item, i) => (
-                                                        <li key={i} className="flex text-slate dark:text-lightSlate">
+                                                        <li key={i} className="flex text-slate">
                                                             <span className="text-teal mr-2 flex-shrink-0">▹</span>
                                                             <span>{item}</span>
                                                         </li>
                                                     ))}
                                                 </ul>
-                                            </motion.div>
+                                            </div>
                                         </div>
-                                    </motion.div>
+                                    </div>
                                 ))}
                             </div>
                         )}
-                    </motion.div>
-                </motion.div>
+                    </div>
+                </div>
             </div>
         </section>
     );

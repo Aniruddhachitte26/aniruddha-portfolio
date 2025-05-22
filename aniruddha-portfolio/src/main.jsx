@@ -1,10 +1,10 @@
-// index.js (main.jsx) - Updated to remove other font imports
+// main.jsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 
-// Lora font is now loaded from index.html
+// Lora font is loaded from index.html
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -3,7 +3,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/* Font family setup - Adding Lora as the primary font */
+/* Font family setup - Using Lora as the primary font */
 @layer base {
   html {
     font-family: 'Lora', serif;
@@ -16,31 +16,16 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: #f5f0e1;
-}
-
-.dark ::-webkit-scrollbar-track {
-    background: #0a192f;
+    background: #eeedeb;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(100, 255, 218, 0.5);
+    background: rgba(51, 51, 51, 0.5);
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(100, 255, 218, 0.7);
-}
-
-/* Custom cursor style */
-html.custom-cursor {
-    cursor: none !important;
-}
-
-html.custom-cursor a,
-html.custom-cursor button,
-html.custom-cursor [role="button"] {
-    cursor: none !important;
+    background: rgba(51, 51, 51, 0.7);
 }
 
 /* Smooth Scrolling */
@@ -50,7 +35,7 @@ html {
 
 /* Selection style */
 ::selection {
-    background-color: rgba(100, 255, 218, 0.3);
+    background-color: rgba(51, 51, 51, 0.3);
     color: currentColor;
 }
 
@@ -63,78 +48,28 @@ body {
     overflow-x: hidden;
 }
 
-/* Keep special font classes for specific elements if needed */
+/* Font classes for specific elements if needed */
 .font-poppins {
-    font-family: 'Lora', serif; /* Override with Lora */
+    font-family: 'Lora', serif;
 }
 
 .font-inter {
-    font-family: 'Lora', serif; /* Override with Lora */
+    font-family: 'Lora', serif;
 }
 
 .font-fira {
-    font-family: 'Lora', serif; /* Override with Lora */
+    font-family: 'Lora', serif;
 }
 
-/* Dark Mode Colors */
-.dark {
-    --color-navy: #0a192f;
-    --color-light-navy: #112240;
-    --color-lightest-navy: #233554;
-    --color-slate: #8892b0;
-    --color-light-slate: #a8b2d1;
-    --color-lightest-slate: #ccd6f6;
-    --color-white: #e6f1ff;
-    --color-teal: #64ffda;
-}
-
-/* Light Mode Colors */
+/* Theme Colors */
 :root {
-    --color-navy: #0a192f;
-    --color-light-navy: #112240;
-    --color-lightest-navy: #233554;
-    --color-slate: #8892b0;
-    --color-light-slate: #a8b2d1;
-    --color-lightest-slate: #ccd6f6;
-    --color-white: #e6f1ff;
-    --color-teal: #64ffda;
-    --color-cream: #f5f0e1;
-}
-
-/* Animation utility classes */
-.animate-float {
-    animation: float 3s ease-in-out infinite;
-}
-
-.animate-spin-slow {
-    animation: spin 8s linear infinite;
-}
-
-.animate-fade-in {
-    animation: fadeIn 0.5s ease-in forwards;
-}
-
-@keyframes float {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    --color-navy: #000000;
+    --color-cream: #eeedeb;
+    --color-teal: #333333;
+    --color-light-navy: #ffffff;
+    --color-slate: #444444;
+    --color-light-slate: #222222;
+    --color-white: #ffffff;
 }
 
 /* Responsive font sizes */
