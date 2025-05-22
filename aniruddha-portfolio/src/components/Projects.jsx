@@ -71,7 +71,7 @@ const Projects = () => {
     };
 
     return (
-        <section id="projects" className="py-12 md:py-20 lg:py-32 bg-cream">
+        <section id="projects" className="pt-6 pb-20 lg:pt-12 lg:pb-32 bg-cream">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="max-w-6xl mx-auto">
                     {/* Section Title */}
