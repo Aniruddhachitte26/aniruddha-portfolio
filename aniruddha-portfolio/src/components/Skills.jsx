@@ -77,47 +77,48 @@ const Skills = () => {
         : skills.filter(skill => skill.category === activeCategory);
 
     return (
-        <section id="skills" className="pt-6 pb-20 lg:pt-12 lg:pb-32 bg-cream">
-            <div className="container mx-auto px-6">
+        <section id="skills" className="pt-4 pb-10 md:pt-12 md:pb-32 bg-cream">
+            <div className="container mx-auto px-2 md:px-6">
                 <div className="max-w-6xl mx-auto">
                     {/* Section Title */}
-                    <div className="flex items-center mb-10">
-                        <h2 className="text-3xl lg:text-4xl font-poppins font-bold text-navy">
-                            Skills & Technologies
+                    <div className="flex items-center mb-4 md:mb-10">
+                        <h2 className="text-xl md:text-3xl lg:text-4xl font-poppins font-bold text-navy">
+                            Skills
                         </h2>
-                        <div className="ml-4 h-px bg-teal flex-grow max-w-xs"></div>
+                        <div className="ml-3 h-px bg-teal flex-grow max-w-xs"></div>
                     </div>
 
-                    {/* Category Filter */}
-                    <div className="flex justify-center mb-8 overflow-x-auto pb-4">
-                        <div className="flex flex-wrap justify-center gap-2 bg-lightNavy p-2 rounded-lg shadow-md">
+                    {/* Category Filter - Horizontally scrollable on mobile with smaller buttons */}
+                    <div className="flex justify-start md:justify-center mb-3 md:mb-8 overflow-x-auto pb-1 -mx-2 px-2 md:mx-0 md:px-0 no-scrollbar">
+                        <div className="flex flex-nowrap md:flex-wrap md:justify-center gap-1 md:gap-2 bg-lightNavy p-1 md:p-2 rounded-lg shadow-md">
                             {skillCategories.map((category) => (
                                 <button
                                     key={category.id}
                                     onClick={() => setActiveCategory(category.id)}
-                                    className={`flex items-center px-3 py-2 rounded-md transition-all duration-300 whitespace-nowrap ${activeCategory === category.id
+                                    className={`flex items-center px-1.5 py-0.5 md:px-3 md:py-2 rounded-md transition-all duration-300 whitespace-nowrap text-xxs md:text-sm ${
+                                        activeCategory === category.id
                                             ? 'bg-teal/20 text-navy'
                                             : 'hover:bg-cream/70 text-slate'
-                                        }`}
+                                    }`}
                                 >
-                                    <span className="mr-2">{category.icon}</span>
+                                    <span className="mr-0.5 md:mr-2 text-xs md:text-base">{category.icon}</span>
                                     <span className="font-medium">{category.name}</span>
                                 </button>
                             ))}
                         </div>
                     </div>
 
-                    {/* Skills Grid - More compact with smaller items */}
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    {/* Skills Grid - More compact with smaller items and 4 columns on mobile */}
+                    <div className="grid grid-cols-4 gap-1 md:gap-4">
                         {filteredSkills.map((skill, index) => (
                             <div
                                 key={skill.name}
-                                className="bg-lightNavy rounded-lg p-4 flex flex-col items-center text-center shadow-md"
+                                className="bg-lightNavy rounded-lg p-1.5 md:p-4 flex flex-col items-center text-center shadow-md"
                             >
-                                <div className="text-2xl text-teal mb-2">
+                                <div className="text-sm md:text-2xl text-teal mb-0.5 md:mb-2">
                                     {skill.icon}
                                 </div>
-                                <h3 className="text-sm font-semibold text-navy">
+                                <h3 className="text-xxs md:text-sm font-semibold text-navy truncate w-full">
                                     {skill.name}
                                 </h3>
                             </div>

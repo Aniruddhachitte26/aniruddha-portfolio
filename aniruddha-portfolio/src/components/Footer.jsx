@@ -41,26 +41,26 @@ const Footer = () => {
     };
 
     return (
-        <footer className="bg-cream py-10 relative">
+        <footer className="bg-cream py-6 md:py-10 relative">
             {/* Scroll to Top Button - Updated to be transparent initially */}
             <button
                 onClick={scrollToTop}
-                className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-transparent border-2 border-teal text-teal rounded-full flex items-center justify-center shadow-lg hover:bg-gray-300/30 transition-all z-20"
+                className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-10 h-10 md:w-12 md:h-12 bg-transparent border-2 border-teal text-teal rounded-full flex items-center justify-center shadow-lg hover:bg-gray-300/30 transition-all z-20"
             >
-                <FaArrowUp />
+                <FaArrowUp className="text-sm md:text-base" />
             </button>
 
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-4 md:px-6">
                 <div className="max-w-6xl mx-auto">
                     {/* Footer Content */}
                     <div className="flex flex-col items-center">
                         {/* Logo */}
-                        <div className="text-3xl font-poppins font-bold mb-6">
+                        <div className="text-2xl md:text-3xl font-poppins font-bold mb-4 md:mb-6">
                             <span className="text-navy">Aniruddha Chitte</span>
                         </div>
 
                         {/* Social Links */}
-                        <div className="flex space-x-6 mb-8">
+                        <div className="flex space-x-4 md:space-x-6 mb-4 md:mb-8">
                             {socialLinks.map((link, index) => (
                                 <a
                                     key={index}
@@ -68,15 +68,15 @@ const Footer = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label={link.name}
-                                    className="text-xl text-slate hover:text-teal transition-colors"
+                                    className="text-lg md:text-xl text-slate hover:text-teal transition-colors"
                                 >
                                     {link.icon}
                                 </a>
                             ))}
                         </div>
 
-                        {/* Footer Nav Links */}
-                        <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 mb-8 text-sm font-medium">
+                        {/* Footer Nav Links - More compact for mobile */}
+                        <div className="flex flex-wrap justify-center gap-x-4 md:gap-x-8 gap-y-1 md:gap-y-2 mb-4 md:mb-8 text-xs md:text-sm font-medium">
                             {['Home', 'Experience', 'Projects', 'Skills', 'Contact', 'Resume'].map((item, index) => (
                                 <a
                                     key={index}
@@ -91,7 +91,7 @@ const Footer = () => {
                         </div>
 
                         {/* Copyright */}
-                        <div className="text-center text-sm text-slate">
+                        <div className="text-center text-xs md:text-sm text-slate">
                             <p>
                                 &copy; {currentYear} Aniruddha Chitte. All Rights Reserved.
                             </p>

@@ -41,13 +41,13 @@ const Navbar = () => {
 
     return (
         <nav
-            className={`fixed w-full z-50 py-4 px-8 transition-all duration-300 ${
+            className={`fixed w-full z-50 py-2 md:py-4 px-4 md:px-8 transition-all duration-300 ${
                 scroll ? 'bg-cream/90 backdrop-blur-sm shadow-lg' : 'bg-cream'
             }`}
         >
             <div className="max-w-7xl mx-auto flex justify-between items-center">
                 {/* Logo */}
-                <div className="text-2xl font-poppins font-bold">
+                <div className="text-xl md:text-2xl font-poppins font-bold">
                     <a href="#home" className="text-navy">
                         AC
                     </a>
@@ -82,19 +82,23 @@ const Navbar = () => {
                 <div className="md:hidden flex items-center">
                     <button
                         onClick={() => setMenuOpen(!menuOpen)}
-                        className="p-2 text-navy"
+                        className="p-1 text-navy"
+                        aria-label={menuOpen ? "Close menu" : "Open menu"}
                     >
-                        {menuOpen ? <FaTimes /> : <FaBars />}
+                        {menuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
                     </button>
                 </div>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu - improved with animation and better spacing */}
             {menuOpen && (
                 <div
-                    className="fixed inset-0 bg-cream flex flex-col items-center justify-center z-40 md:hidden"
+                    className="fixed inset-0 bg-cream pt-16 flex flex-col items-center z-40 md:hidden animate-fadeIn"
+                    style={{
+                        animation: "fadeIn 0.2s ease-in-out"
+                    }}
                 >
-                    <div className="flex flex-col items-center space-y-8">
+                    <div className="flex flex-col items-center space-y-6 pt-8">
                         {navLinks.map((link, index) => (
                             <div key={index}>
                                 {link.name === 'Resume' ? (
@@ -102,14 +106,14 @@ const Navbar = () => {
                                         href={link.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-2xl font-inter text-navy hover:text-teal transition-colors"
+                                        className="text-xl font-inter text-navy hover:text-teal transition-colors"
                                     >
                                         {link.name}
                                     </a>
                                 ) : (
                                     <button
                                         onClick={() => scrollToSection(link.url.substring(1))}
-                                        className="text-2xl font-inter text-navy hover:text-teal transition-colors"
+                                        className="text-xl font-inter text-navy hover:text-teal transition-colors"
                                     >
                                         {link.name}
                                     </button>

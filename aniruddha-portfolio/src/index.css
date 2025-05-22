@@ -1,4 +1,4 @@
-/* index.css with Lora font integration */
+/* index.css with Lora font integration and mobile optimizations */
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
@@ -8,6 +8,24 @@
   html {
     font-family: 'Lora', serif;
   }
+}
+
+/* Text size utilities for very small screens */
+@layer utilities {
+  .text-xxs {
+    font-size: 0.625rem;
+    line-height: 1rem;
+  }
+}
+
+/* Hide scrollbar but maintain scrolling functionality */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
 }
 
 /* Custom Scrollbar */
@@ -48,6 +66,325 @@ body {
     overflow-x: hidden;
 }
 
+/* Mobile optimizations */
+@media (max-width: 767px) {
+    body {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    
+    p {
+        font-size: 0.875rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    section {
+        padding-top: 2.5rem !important;
+        padding-bottom: 2.5rem !important;
+    }
+    
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem !important;
+    }
+    
+    h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    h3 {
+        font-size: 1.25rem !important;
+    }
+    
+    .text-5xl {
+        font-size: 2.5rem !important;
+    }
+    
+    .text-4xl {
+        font-size: 2rem !important;
+    }
+    
+    .text-3xl {
+        font-size: 1.5rem !important;
+    }
+    
+    .text-2xl {
+        font-size: 1.25rem !important;
+    }
+    
+    .text-xl {
+        font-size: 1.125rem !important;
+    }
+    
+    .text-lg {
+        font-size: 1rem !important;
+    }
+    
+    .text-base {
+        font-size: 0.875rem !important;
+    }
+    
+    .text-sm {
+        font-size: 0.75rem !important;
+    }
+    
+    /* Spacing adjustments */
+    .p-6 {
+        padding: 1rem !important;
+    }
+    
+    .py-6 {
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+    
+    .px-6 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    .m-6 {
+        margin: 1rem !important;
+    }
+    
+    .my-6 {
+        margin-top: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .mx-6 {
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+    }
+    
+    .gap-6 {
+        gap: 1rem !important;
+    }
+    
+    .space-y-6 > * + * {
+        margin-top: 1rem !important;
+    }
+
+    /* Hero section */
+    #home {
+        min-height: auto !important;
+        padding-top: 5rem !important;
+        padding-bottom: 2rem !important;
+    }
+    
+    #home h1 {
+        font-size: 2rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+    
+    #home h2 {
+        font-size: 1.25rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    #home .prose p {
+        font-size: 0.875rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 1rem !important;
+    }
+
+    /* Experience section */
+    #experience .space-y-12 {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    #experience .space-y-12 > div {
+        margin-top: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    #experience .flex.justify-between.items-start.mb-6 {
+        flex-direction: column;
+    }
+    
+    #experience .text-right {
+        text-align: left;
+        margin-top: 0.5rem;
+    }
+    
+    #experience .w-16.h-16 {
+        width: 3rem;
+        height: 3rem;
+    }
+    
+    #experience .text-xl {
+        font-size: 1.125rem !important;
+    }
+    
+    #experience .text-lg {
+        font-size: 1rem !important;
+    }
+    
+    #experience .space-y-2 {
+        margin-top: 0.75rem;
+        font-size: 0.875rem;
+    }
+    
+    #experience .ml-6 {
+        margin-left: 1rem !important;
+    }
+    
+    #experience .p-6 {
+        padding: 1rem !important;
+    }
+    
+    /* Skills section */
+    #skills .grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: 0.5rem !important;
+    }
+    
+    #skills .bg-lightNavy {
+        padding: 0.75rem !important;
+    }
+    
+    #skills .text-2xl {
+        font-size: 1.25rem !important;
+    }
+    
+    #skills .text-sm {
+        font-size: 0.75rem !important;
+    }
+    
+    #skills .text-xs {
+        font-size: 0.65rem !important;
+    }
+    
+    #skills .text-xxs {
+        font-size: 0.6rem !important;
+        line-height: 0.9rem !important;
+    }
+    
+    #skills .truncate {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+    
+    #skills .p-1\.5 {
+        padding: 0.375rem !important;
+    }
+    
+    #skills .mb-0\.5 {
+        margin-bottom: 0.125rem !important;
+    }
+    
+    #skills .mr-0\.5 {
+        margin-right: 0.125rem !important;
+    }
+    
+    #skills .flex.justify-center.mb-8 {
+        margin-bottom: 1rem !important;
+    }
+    
+    #skills .flex.flex-wrap.justify-center.gap-2,
+    #skills .flex.flex-nowrap.gap-1 {
+        gap: 0.25rem !important;
+    }
+    
+    #skills button {
+        padding: 0.25rem 0.5rem !important;
+        font-size: 0.7rem !important;
+    }
+    
+    #skills button span.mr-2 {
+        margin-right: 0.25rem !important;
+    }
+    
+    /* Projects section */
+    #projects .grid {
+        gap: 1rem !important;
+    }
+    
+    #projects .p-6 {
+        padding: 1rem !important;
+    }
+    
+    #projects .text-xl {
+        font-size: 1.125rem !important;
+    }
+    
+    #projects .mb-4 {
+        margin-bottom: 0.5rem !important;
+    }
+    
+    #projects .flex.flex-wrap.gap-2.mb-4 {
+        gap: 0.25rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    #projects .px-2.py-1 {
+        padding: 0.125rem 0.375rem !important;
+        font-size: 0.625rem !important;
+    }
+    
+    /* Contact section */
+    #contact .grid.md\\:grid-cols-2.gap-12 {
+        gap: 2rem !important;
+    }
+    
+    #contact .text-2xl {
+        font-size: 1.25rem !important;
+    }
+    
+    #contact .space-y-6 {
+        margin-top: 0.75rem !important;
+    }
+    
+    #contact label {
+        margin-bottom: 0.25rem !important;
+    }
+    
+    #contact input, 
+    #contact textarea {
+        padding: 0.5rem !important;
+        font-size: 0.875rem !important;
+    }
+    
+    #contact .py-3 {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+    
+    /* Footer */
+    footer .py-10 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    
+    footer .space-x-6 {
+        gap: 1rem !important;
+    }
+    
+    footer .mb-8 {
+        margin-bottom: 1rem !important;
+    }
+    
+    footer .text-3xl {
+        font-size: 1.5rem !important;
+    }
+    
+    /* Navbar */
+    nav {
+        padding: 0.5rem 1rem !important;
+    }
+    
+    nav .text-2xl {
+        font-size: 1.25rem !important;
+    }
+}
+
 /* Font classes for specific elements if needed */
 .font-poppins {
     font-family: 'Lora', serif;
@@ -70,6 +407,20 @@ body {
     --color-slate: #444444;
     --color-light-slate: #222222;
     --color-white: #ffffff;
+}
+
+/* Mobile animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.3s ease-in-out;
 }
 
 /* Responsive font sizes */

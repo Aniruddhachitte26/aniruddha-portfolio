@@ -31,6 +31,30 @@ module.exports = {
         custom: "0 10px 30px -10px rgba(0, 0, 0, 0.3)",
         "custom-light": "0 10px 30px -10px rgba(0, 0, 0, 0.1)",
       },
+      fontSize: {
+        'xxs': ['0.625rem', { lineHeight: '0.75rem' }], // For extremely small text on mobile
+      },
+      spacing: {
+        '0.75': '0.1875rem', // For very tiny gaps
+        '1.25': '0.3125rem', // For small gaps
+      },
+      animation: {
+        'fadeIn': 'fadeIn 0.3s ease-in-out',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+      },
+    },
+    screens: {
+      'xs': '360px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
     },
   },
   plugins: [],

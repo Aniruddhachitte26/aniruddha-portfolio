@@ -65,34 +65,36 @@ const Experience = () => {
             <div className="container mx-auto px-6">
                 <div className="max-w-6xl mx-auto">
                     {/* Section Title */}
-                    <div className="flex items-center mb-12">
-                        <h2 className="text-3xl lg:text-4xl font-poppins font-bold text-navy">
+                    <div className="flex items-center mb-6 md:mb-12">
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-poppins font-bold text-navy">
                             My Journey
                         </h2>
                         <div className="ml-4 h-px bg-teal flex-grow max-w-xs"></div>
                     </div>
 
                     {/* Tabs */}
-                    <div className="flex justify-center mb-10">
+                    <div className="flex justify-center mb-6 md:mb-10">
                         <div className="bg-lightNavy p-1 rounded-lg shadow-md flex">
                             <button
                                 onClick={() => setActiveTab('work')}
-                                className={`flex items-center px-4 py-2 rounded-md transition-all duration-300 ${activeTab === 'work'
-                                    ? 'bg-teal/20 text-navy'
-                                    : 'hover:bg-cream/70 text-slate'
-                                    }`}
+                                className={`flex items-center px-3 py-1 md:px-4 md:py-2 rounded-md transition-all duration-300 text-sm md:text-base ${
+                                    activeTab === 'work'
+                                        ? 'bg-teal/20 text-navy'
+                                        : 'hover:bg-cream/70 text-slate'
+                                }`}
                             >
-                                <FaBriefcase className="mr-2" />
+                                <FaBriefcase className="mr-1 md:mr-2" />
                                 <span className="font-medium">Work</span>
                             </button>
                             <button
                                 onClick={() => setActiveTab('education')}
-                                className={`flex items-center px-4 py-2 rounded-md transition-all duration-300 ${activeTab === 'education'
-                                    ? 'bg-teal/20 text-navy'
-                                    : 'hover:bg-cream/70 text-slate'
-                                    }`}
+                                className={`flex items-center px-3 py-1 md:px-4 md:py-2 rounded-md transition-all duration-300 text-sm md:text-base ${
+                                    activeTab === 'education'
+                                        ? 'bg-teal/20 text-navy'
+                                        : 'hover:bg-cream/70 text-slate'
+                                }`}
                             >
-                                <FaGraduationCap className="mr-2" />
+                                <FaGraduationCap className="mr-1 md:mr-2" />
                                 <span className="font-medium">Education</span>
                             </button>
                         </div>
@@ -101,7 +103,7 @@ const Experience = () => {
                     {/* Timeline */}
                     <div>
                         {activeTab === 'work' ? (
-                            <div className="space-y-12">
+                            <div className="space-y-6 md:space-y-12">
                                 {workExperience.map((exp, index) => (
                                     <div key={index} className="relative">
                                         {/* Timeline Line */}
@@ -118,14 +120,14 @@ const Experience = () => {
                                             </div>
 
                                             {/* Content */}
-                                            <div className="ml-6 bg-lightNavy shadow-lg p-6 rounded-lg flex-1 z-10">
+                                            <div className="ml-4 md:ml-6 bg-lightNavy shadow-lg p-3 md:p-6 rounded-lg flex-1 z-10">
                                                 {/* Header */}
-                                                <div className="flex justify-between items-start mb-6">
+                                                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-3 md:mb-6">
                                                     {/* Left Side: Logo + Title Info */}
-                                                    <div className="flex items-start">
+                                                    <div className="flex items-start mb-2 md:mb-0">
                                                         {/* Company Logo */}
                                                         {exp.logo && (
-                                                            <div className="mr-4 w-16 h-16 flex-shrink-0 bg-white rounded-full p-1 shadow-sm overflow-hidden">
+                                                            <div className="mr-3 md:mr-4 w-10 h-10 md:w-16 md:h-16 flex-shrink-0 bg-white rounded-full p-1 shadow-sm overflow-hidden">
                                                                 <img 
                                                                     src={exp.logo} 
                                                                     alt={`${exp.company} logo`} 
@@ -137,34 +139,34 @@ const Experience = () => {
                                                         <div>
                                                             {/* Title and Duration Row */}
                                                             <div className="flex justify-between items-center w-full">
-                                                                <h3 className="text-xl font-semibold text-navy">
+                                                                <h3 className="text-lg md:text-xl font-semibold text-navy">
                                                                     {exp.title}
                                                                 </h3>
                                                             </div>
                                                             
                                                             {/* Company Name */}
-                                                            <h4 className="text-lg font-medium text-teal">
+                                                            <h4 className="text-base md:text-lg font-medium text-teal">
                                                                 {exp.company}
                                                             </h4>
                                                         </div>
                                                     </div>
 
                                                     {/* Right Side: Duration and Location */}
-                                                    <div className="text-right">
-                                                        <div className="text-sm font-fira text-slate">
+                                                    <div className="text-left md:text-right text-xs md:text-sm">
+                                                        <div className="font-fira text-slate">
                                                             {exp.duration}
                                                         </div>
-                                                        <div className="text-sm font-fira text-slate mt-1">
+                                                        <div className="font-fira text-slate mt-0.5 md:mt-1">
                                                             {exp.location}
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 {/* Job Description */}
-                                                <ul className="space-y-2">
+                                                <ul className="space-y-1 md:space-y-2 text-xs md:text-base">
                                                     {exp.description.map((item, i) => (
                                                         <li key={i} className="flex text-slate">
-                                                            <span className="text-teal mr-2 flex-shrink-0">▹</span>
+                                                            <span className="text-teal mr-1 md:mr-2 flex-shrink-0">▹</span>
                                                             <span>{item}</span>
                                                         </li>
                                                     ))}
@@ -175,7 +177,7 @@ const Experience = () => {
                                 ))}
                             </div>
                         ) : (
-                            <div className="space-y-12">
+                            <div className="space-y-6 md:space-y-12">
                                 {education.map((edu, index) => (
                                     <div key={index} className="relative">
                                         {/* Timeline Line */}
@@ -192,14 +194,14 @@ const Experience = () => {
                                             </div>
 
                                             {/* Content */}
-                                            <div className="ml-6 bg-lightNavy shadow-lg p-6 rounded-lg flex-1 z-10">
+                                            <div className="ml-4 md:ml-6 bg-lightNavy shadow-lg p-3 md:p-6 rounded-lg flex-1 z-10">
                                                 {/* Header */}
-                                                <div className="flex justify-between items-start mb-6">
+                                                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-3 md:mb-6">
                                                     {/* Left Side: Logo + Institution Info */}
-                                                    <div className="flex items-start">
+                                                    <div className="flex items-start mb-2 md:mb-0">
                                                         {/* Logo */}
                                                         {edu.logo && (
-                                                            <div className="mr-4 w-16 h-16 flex-shrink-0 bg-white rounded-full p-1 shadow-sm overflow-hidden">
+                                                            <div className="mr-3 md:mr-4 w-10 h-10 md:w-16 md:h-16 flex-shrink-0 bg-white rounded-full p-1 shadow-sm overflow-hidden">
                                                                 <img 
                                                                     src={edu.logo} 
                                                                     alt={`${edu.institution} logo`} 
@@ -210,32 +212,32 @@ const Experience = () => {
                                                         
                                                         <div>
                                                             {/* Institution */}
-                                                            <h3 className="text-xl font-semibold text-navy">
+                                                            <h3 className="text-lg md:text-xl font-semibold text-navy">
                                                                 {edu.institution}
                                                             </h3>
                                                             
                                                             {/* Degree */}
-                                                            <h4 className="text-lg font-medium text-teal">
+                                                            <h4 className="text-base md:text-lg font-medium text-teal">
                                                                 {edu.degree}
                                                             </h4>
                                                         </div>
                                                     </div>
 
                                                     {/* Right Side: Duration and Location */}
-                                                    <div className="text-right">
-                                                        <div className="text-sm font-fira text-slate">
+                                                    <div className="text-left md:text-right text-xs md:text-sm">
+                                                        <div className="font-fira text-slate">
                                                             {edu.duration}
                                                         </div>
-                                                        <div className="text-sm font-fira text-slate mt-1">
+                                                        <div className="font-fira text-slate mt-0.5 md:mt-1">
                                                             {edu.location}
                                                         </div>
                                                     </div>
                                                 </div>
 
-                                                <ul className="space-y-2">
+                                                <ul className="space-y-1 md:space-y-2 text-xs md:text-base">
                                                     {edu.description.map((item, i) => (
                                                         <li key={i} className="flex text-slate">
-                                                            <span className="text-teal mr-2 flex-shrink-0">▹</span>
+                                                            <span className="text-teal mr-1 md:mr-2 flex-shrink-0">▹</span>
                                                             <span>{item}</span>
                                                         </li>
                                                     ))}
