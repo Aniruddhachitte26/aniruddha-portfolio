@@ -25,7 +25,7 @@ const Navbar = () => {
         { name: 'Projects', url: '#projects' },
         { name: 'Skills', url: '#skills' },
         { name: 'Contact', url: '#contact' },
-        { name: 'Resume', url: '#resume' }  
+        { name: 'Resume', url: 'https://drive.google.com/file/d/1ADl_6gpBAsB5pzoNa0HSGBrkJSOPPAi7/view?usp=sharing' }  
     ];
 
     const scrollToSection = (sectionId) => {
