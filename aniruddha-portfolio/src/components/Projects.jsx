@@ -1,10 +1,28 @@
 // components/Projects.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import AnimationObserver from '../utils/AnimationObserver';
 
 const Projects = () => {
     const [activeFilter, setActiveFilter] = useState('all');
     const [selectedProject, setSelectedProject] = useState(null);
+    const [animatedProjects, setAnimatedProjects] = useState([]);
+
+    useEffect(() => {
+        // Initialize animation observer
+        AnimationObserver.init();
+        
+        // Add staggered animations to projects
+        const timer = setTimeout(() => {
+            const projectsToAnimate = [];
+            projects.forEach((project, index) => {
+                projectsToAnimate.push(project.id);
+            });
+            setAnimatedProjects(projectsToAnimate);
+        }, 300);
+        
+        return () => clearTimeout(timer);
+    }, []);
 
     // Projects data
     const projects = [
@@ -21,6 +39,17 @@ const Projects = () => {
         },
         {
             id: 2,
+            title: "Personal Finance Tracker Android App",
+            description: "A secure and responsive Android application for tracking personal finances with offline-first functionality.",
+            longDescription: "Created a secure and responsive Android application developed in Kotlin with Firebase Authentication, applying robust role-based access control and session management, and designed system to handle 30+ concurrent users. Incorporated Retrofit with Kotlin Coroutines for efficient, multithreaded RESTful API communication, managing asynchronous network requests and JSON parsing to synchronize user data between mobile app and backend services without blocking the UI. Leveraged Android Studio, Jetpack Compose, Room DB, MVVM architecture, and Coroutines to build an offline-first app with real-time UI updates and reliable data persistence, ensuring seamless user experience even in low-connectivity environments.",
+            image: "/aniruddha-portfolio/images/projects/finance-app.jpg",
+            github: "https://github.com/Aniruddhachitte26/FinanceTrackerApp",
+            demo: "#",
+            technologies: ["Kotlin", "Android Studio", "Jetpack Compose", "MVVM", "Room DB", "Retrofit", "Coroutines", "Firebase"],
+            category: "mobile"
+        },
+        {
+            id: 3,
             title: "Next-Gen Job Portal",
             description: "A full-stack job portal connecting job seekers with potential employers featuring role-based access control.",
             longDescription: "Job Portal is a full-stack web application that connects job seekers with potential employers. Built with React, Redux and Material UI on the frontend and Node.js, Express and MongoDB on the backend, the platform features separate interfaces for administrators and employees with role-based access control. Administrators can manage users and job postings, while employees can browse job listings with search and filter capabilities and view detailed company profiles. The application includes secure authentication, responsive design for all devices, intuitive navigation with React Router, and comprehensive state management using Redux. The backend implements secure user management, job listing APIs, and image upload functionality.",
@@ -31,7 +60,7 @@ const Projects = () => {
             category: "web"
         },
         {
-            id: 3,
+            id: 4,
             title: "Machine Learning Approach in Melanoma Skin Cancer Stage Detection",
             description: "A CNN-based diagnostic system for skin lesion analysis with high classification accuracy.",
             longDescription: "Innovated a CNN based skin lesion diagnosis system, achieving 97% classification accuracy, and integrated real-time visualization through Streamlit to assist medical professionals. Leveraged Python, deep learning algorithms, and SQL to strengthen image processing, data management, and ensure accurate diagnostic results. This research was published in IEEE Xplore in January 2024.",
@@ -42,7 +71,7 @@ const Projects = () => {
             category: "ml"
         },
         {
-            id: 4,
+            id: 5,
             title: "Drug Management System",
             description: "A centralized system for pharmaceutical companies to streamline case management and ensure regulatory compliance.",
             longDescription: "Collaborated with a team to develop a centralized Drug Management System (DMS) aimed at streamlining case management for pharmaceutical companies. The system focuses on efficiently handling adverse event reporting and case tracking for drugs and devices, ensuring compliance with regulatory standards such as the FDA, providing data analytics and decision-making support to enhance drug safety, and facilitating seamless communication between manufacturers, healthcare providers, and regulatory agencies.",
@@ -70,22 +99,38 @@ const Projects = () => {
         document.body.style.overflow = 'auto';
     };
 
+    const getAnimationDelay = (index) => {
+        return 200 + (index * 150);
+    };
+
     return (
         <section id="projects" className="pt-6 pb-20 lg:pt-12 lg:pb-32 bg-cream">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="max-w-6xl mx-auto">
                     {/* Section Title */}
                     <div className="flex items-center mb-6 md:mb-12">
-                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-poppins font-bold text-navy">
+                        <h2 
+                            className="text-2xl md:text-3xl lg:text-4xl font-poppins font-bold text-navy"
+                            data-animate="slide-in-left"
+                            data-delay="100"
+                        >
                             Projects
                         </h2>
-                        <div className="ml-4 h-px bg-teal flex-grow max-w-xs"></div>
+                        <div 
+                            className="ml-4 h-px bg-teal flex-grow max-w-xs"
+                            data-animate="slide-in-right"
+                            data-delay="300"
+                        ></div>
                     </div>
 
                     {/* Filter */}
-                    <div className="flex justify-center mb-6 md:mb-12 flex-wrap">
+                    <div 
+                        className="flex justify-center mb-6 md:mb-12 flex-wrap"
+                        data-animate="fade-in"
+                        data-delay="500"
+                    >
                         <div className="flex space-x-2 bg-lightNavy p-1.5 md:p-2 rounded-lg shadow-md">
-                            {['all', 'web', 'ml'].map((category) => (
+                            {['all', 'web', 'mobile', 'ml'].map((category, index) => (
                                 <button
                                     key={category}
                                     onClick={() => setActiveFilter(category)}
@@ -96,7 +141,9 @@ const Projects = () => {
                                     }`}
                                 >
                                     <span className="font-medium capitalize">
-                                        {category === 'all' ? 'All' : category === 'ml' ? 'ML & AI' : 'Web Apps'}
+                                        {category === 'all' ? 'All' : 
+                                         category === 'ml' ? 'ML & AI' : 
+                                         category === 'mobile' ? 'Mobile Apps' : 'Web Apps'}
                                     </span>
                                 </button>
                             ))}
@@ -105,10 +152,12 @@ const Projects = () => {
 
                     {/* Projects Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-                        {filteredProjects.map((project) => (
+                        {filteredProjects.map((project, index) => (
                             <div
                                 key={project.id}
-                                className="bg-lightNavy rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 flex flex-col h-full"
+                                className="bg-lightNavy rounded-lg overflow-hidden shadow-lg transform transition-all duration-500 hover:-translate-y-2 flex flex-col h-full hover-lift"
+                                data-animate="slide-up"
+                                data-delay={getAnimationDelay(index)}
                             >
                                 {/* Project Image */}
                                 <div className="relative overflow-hidden h-36 md:h-48">
@@ -141,7 +190,7 @@ const Projects = () => {
                                         {project.technologies.slice(0, window.innerWidth < 768 ? 5 : undefined).map((tech, index) => (
                                             <span
                                                 key={index}
-                                                className="px-1.5 py-0.5 md:px-2 md:py-1 bg-teal/10 text-teal text-xxs md:text-xs font-fira rounded"
+                                                className="px-1.5 py-0.5 md:px-2 md:py-1 bg-teal/10 text-teal text-xxs md:text-xs font-fira rounded hover-text-glow"
                                             >
                                                 {tech}
                                             </span>
@@ -159,7 +208,7 @@ const Projects = () => {
                                             href={project.github}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="text-navy hover:text-teal transition-colors"
+                                            className="text-navy hover:text-teal transition-colors hover-expand"
                                         >
                                             <FaGithub size={16} className="md:text-xl" />
                                         </a>
@@ -167,7 +216,7 @@ const Projects = () => {
                                             href={project.demo}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="text-navy hover:text-teal transition-colors"
+                                            className="text-navy hover:text-teal transition-colors hover-expand"
                                         >
                                             <FaExternalLinkAlt size={14} className="md:text-lg" />
                                         </a>
@@ -179,15 +228,16 @@ const Projects = () => {
                 </div>
             </div>
 
-            {/* Project Modal - Smaller padding and font sizes on mobile */}
+            {/* Project Modal - Enhanced with animations */}
             {selectedProject && (
                 <div
                     className="fixed inset-0 z-50 flex items-center justify-center p-2 md:p-4 bg-navy/80 backdrop-blur-sm"
                     onClick={closeModal}
                 >
                     <div
-                        className="bg-lightNavy rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+                        className="bg-lightNavy rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto scale-in"
                         onClick={(e) => e.stopPropagation()}
+                        style={{ animationDuration: '0.3s' }}
                     >
                         {/* Modal Header */}
                         <div className="p-3 md:p-6 border-b border-teal/20">
@@ -197,7 +247,7 @@ const Projects = () => {
                                 </h3>
                                 <button
                                     onClick={closeModal}
-                                    className="text-slate hover:text-teal"
+                                    className="text-slate hover:text-teal hover-expand"
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -216,7 +266,7 @@ const Projects = () => {
                                 />
                             </div>
 
-                            <div className="mb-4 md:mb-6">
+                            <div className="mb-4 md:mb-6 slide-in-left" style={{ animationDelay: '200ms' }}>
                                 <h4 className="text-base md:text-lg font-semibold text-navy mb-1 md:mb-2">
                                     Project Overview
                                 </h4>
@@ -225,7 +275,7 @@ const Projects = () => {
                                 </p>
                             </div>
 
-                            <div className="mb-4 md:mb-6">
+                            <div className="mb-4 md:mb-6 slide-in-left" style={{ animationDelay: '300ms' }}>
                                 <h4 className="text-base md:text-lg font-semibold text-navy mb-1 md:mb-2">
                                     Technologies Used
                                 </h4>
@@ -233,7 +283,8 @@ const Projects = () => {
                                     {selectedProject.technologies.map((tech, index) => (
                                         <span
                                             key={index}
-                                            className="px-2 py-1 bg-teal/10 text-teal font-fira rounded text-xs md:text-sm"
+                                            className="px-2 py-1 bg-teal/10 text-teal font-fira rounded text-xs md:text-sm hover-expand"
+                                            style={{ animationDelay: `${400 + index * 50}ms` }}
                                         >
                                             {tech}
                                         </span>
@@ -242,12 +293,12 @@ const Projects = () => {
                             </div>
 
                             {/* Links */}
-                            <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
+                            <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 slide-in-left" style={{ animationDelay: '400ms' }}>
                                 <a
                                     href={selectedProject.github}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="px-4 py-2 md:px-6 md:py-2 bg-navy text-white font-medium rounded-md flex items-center justify-center md:justify-start transition hover:bg-navy/80 text-sm md:text-base"
+                                    className="px-4 py-2 md:px-6 md:py-2 bg-navy text-white font-medium rounded-md flex items-center justify-center md:justify-start transition hover:bg-navy/80 hover-lift text-sm md:text-base"
                                 >
                                     <FaGithub className="mr-2" /> GitHub Repo
                                 </a>
@@ -255,7 +306,7 @@ const Projects = () => {
                                     href={selectedProject.demo}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="px-4 py-2 md:px-6 md:py-2 border-2 border-navy text-navy font-medium rounded-md flex items-center justify-center md:justify-start transition hover:bg-navy/10 text-sm md:text-base"
+                                    className="px-4 py-2 md:px-6 md:py-2 border-2 border-navy text-navy font-medium rounded-md flex items-center justify-center md:justify-start transition hover:bg-navy/10 hover-lift text-sm md:text-base"
                                 >
                                     <FaExternalLinkAlt className="mr-2" /> Live Demo
                                 </a>

@@ -40,12 +40,28 @@ module.exports = {
       },
       animation: {
         'fadeIn': 'fadeIn 0.3s ease-in-out',
+        'marquee-left': 'marquee-left 30s linear infinite',
+        'marquee-right': 'marquee-right 30s linear infinite',
       },
       keyframes: {
         fadeIn: {
           '0%': { opacity: 0 },
           '100%': { opacity: 1 },
         },
+        'marquee-left': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        'marquee-right': {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+      },
+      scale: {
+        'flip': '-1',
+      },
+      transformOrigin: {
+        'left-center': '0% 50%',
       },
     },
     screens: {
