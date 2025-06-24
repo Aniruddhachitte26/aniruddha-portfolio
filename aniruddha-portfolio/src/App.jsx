@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import About from './components/About';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
@@ -9,6 +10,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Cursor from './components/Cursor';
 import AnimationObserver from './utils/AnimationObserver';
+import Achievements from './components/Achievements';
 
 // Import animation CSS
 import './index.css';
@@ -57,10 +59,13 @@ const App = () => {
                     <Navbar />
                     <main>
                         <Hero />
+                        <About />
                         <Experience />
                         <Projects />
                         <Skills />
+                        <Achievements />
                         <Contact />
+                        
                     </main>
                     <Footer />
                 </>

@@ -43,95 +43,95 @@ const Skills = () => {
         };
     }, []);
 
-    // Skill categories
+    // Skill categories with colorful icons
     const skillCategories = [
-        { id: 'all', name: 'All', icon: <FaCode /> },
-        { id: 'languages', name: 'Languages', icon: <FaCode /> },
-        { id: 'frontend', name: 'Frontend', icon: <FaReact /> },
-        { id: 'backend', name: 'Backend', icon: <FaServer /> },
-        { id: 'databases', name: 'Databases', icon: <FaDatabase /> },
-        { id: 'cloud', name: 'Cloud', icon: <FaCloud /> },
-        { id: 'tools', name: 'Tools', icon: <FaTools /> },
-        { id: 'ml', name: 'ML & AI', icon: <FaBrain /> },
-        { id: 'mobile', name: 'Mobile', icon: <FaMobileAlt /> },
-        { id: 'soft', name: 'Soft Skills', icon: <FaUsers /> }
+        { id: 'all', name: 'All', icon: <FaCode style={{ color: "#6366F1" }} /> },
+        { id: 'languages', name: 'Languages', icon: <FaCode style={{ color: "#6366F1" }} /> },
+        { id: 'frontend', name: 'Frontend', icon: <FaReact style={{ color: "#61DAFB" }} /> },
+        { id: 'backend', name: 'Backend', icon: <FaServer style={{ color: "#3B82F6" }} /> },
+        { id: 'databases', name: 'Databases', icon: <FaDatabase style={{ color: "#10B981" }} /> },
+        { id: 'cloud', name: 'Cloud', icon: <FaCloud style={{ color: "#8B5CF6" }} /> },
+        { id: 'tools', name: 'Tools', icon: <FaTools style={{ color: "#F59E0B" }} /> },
+        { id: 'ml', name: 'ML & AI', icon: <FaBrain style={{ color: "#EC4899" }} /> },
+        { id: 'mobile', name: 'Mobile', icon: <FaMobileAlt style={{ color: "#EF4444" }} /> },
+        { id: 'soft', name: 'Soft Skills', icon: <FaUsers style={{ color: "#4B5563" }} /> }
     ];
 
-    // Skills data - updated based on resume
+    // Skills data - updated with colorful icons
     const skills = [
         // Programming Languages
-        { name: 'Java', icon: <FaJava />, category: 'languages' },
-        { name: 'Kotlin', icon: <SiKotlin />, category: 'languages' },
-        { name: 'C#', icon: <FaCode />, category: 'languages' },
-        { name: 'Python', icon: <FaPython />, category: 'languages' },
-        { name: 'Go (Golang)', icon: <FaCode />, category: 'languages' },
-        { name: 'C++', icon: <FaCode />, category: 'languages' },
-        { name: 'C', icon: <FaCode />, category: 'languages' },
-        { name: 'JavaScript', icon: <FaCode />, category: 'languages' },
-        { name: 'TypeScript', icon: <SiTypescript />, category: 'languages' },
-        { name: 'SQL', icon: <FaDatabase />, category: 'languages' },
+        { name: 'Java', icon: <FaJava style={{ color: "#007396" }} />, category: 'languages' },
+        { name: 'Kotlin', icon: <SiKotlin style={{ color: "#7F52FF" }} />, category: 'languages' },
+        { name: 'C#', icon: <FaCode style={{ color: "#68217A" }} />, category: 'languages' },
+        { name: 'Python', icon: <FaPython style={{ color: "#3776AB" }} />, category: 'languages' },
+        { name: 'Go (Golang)', icon: <FaCode style={{ color: "#00ADD8" }} />, category: 'languages' },
+        { name: 'C++', icon: <FaCode style={{ color: "#00599C" }} />, category: 'languages' },
+        { name: 'C', icon: <FaCode style={{ color: "#A8B9CC" }} />, category: 'languages' },
+        { name: 'JavaScript', icon: <FaCode style={{ color: "#F7DF1E" }} />, category: 'languages' },
+        { name: 'TypeScript', icon: <SiTypescript style={{ color: "#3178C6" }} />, category: 'languages' },
+        { name: 'SQL', icon: <FaDatabase style={{ color: "#4479A1" }} />, category: 'languages' },
         
         // Frontend
-        { name: 'React.js', icon: <FaReact />, category: 'frontend' },
-        { name: 'Angular', icon: <FaAngular />, category: 'frontend' },
-        { name: 'Next.js', icon: <SiNextdotjs />, category: 'frontend' },
-        { name: 'HTML5', icon: <FaHtml5 />, category: 'frontend' },
-        { name: 'CSS3', icon: <FaCss3 />, category: 'frontend' },
-        { name: 'Bootstrap', icon: <SiBootstrap />, category: 'frontend' },
-        { name: 'REST API', icon: <FaServer />, category: 'frontend' },
-        { name: 'GraphQL', icon: <SiGraphql />, category: 'frontend' },
+        { name: 'React.js', icon: <FaReact style={{ color: "#61DAFB" }} />, category: 'frontend' },
+        { name: 'Angular', icon: <FaAngular style={{ color: "#DD0031" }} />, category: 'frontend' },
+        { name: 'Next.js', icon: <SiNextdotjs style={{ color: "#000000" }} />, category: 'frontend' },
+        { name: 'HTML5', icon: <FaHtml5 style={{ color: "#E34F26" }} />, category: 'frontend' },
+        { name: 'CSS3', icon: <FaCss3 style={{ color: "#1572B6" }} />, category: 'frontend' },
+        { name: 'Bootstrap', icon: <SiBootstrap style={{ color: "#7952B3" }} />, category: 'frontend' },
+        { name: 'REST API', icon: <FaServer style={{ color: "#FF5733" }} />, category: 'frontend' },
+        { name: 'GraphQL', icon: <SiGraphql style={{ color: "#E535AB" }} />, category: 'frontend' },
         
         // Backend
-        { name: 'Spring Boot', icon: <SiSpringboot />, category: 'backend' },
-        { name: 'Node.js', icon: <FaNodeJs />, category: 'backend' },
-        { name: 'Express.js', icon: <SiExpress />, category: 'backend' },
-        { name: 'REST API', icon: <FaServer />, category: 'backend' },
-        { name: 'GraphQL', icon: <SiGraphql />, category: 'backend' },
-        { name: 'JSON', icon: <FaCode />, category: 'backend' },
-        { name: 'AJAX', icon: <FaCode />, category: 'backend' },
+        { name: 'Spring Boot', icon: <SiSpringboot style={{ color: "#6DB33F" }} />, category: 'backend' },
+        { name: 'Node.js', icon: <FaNodeJs style={{ color: "#339933" }} />, category: 'backend' },
+        { name: 'Express.js', icon: <SiExpress style={{ color: "#000000" }} />, category: 'backend' },
+        { name: 'REST API', icon: <FaServer style={{ color: "#FF5733" }} />, category: 'backend' },
+        { name: 'GraphQL', icon: <SiGraphql style={{ color: "#E535AB" }} />, category: 'backend' },
+        { name: 'JSON', icon: <FaCode style={{ color: "#000000" }} />, category: 'backend' },
+        { name: 'AJAX', icon: <FaCode style={{ color: "#4285F4" }} />, category: 'backend' },
         
         // Mobile Development
-        { name: 'Android Studio', icon: <SiAndroidstudio />, category: 'mobile' },
-        { name: 'Jetpack', icon: <FaCode />, category: 'mobile' },
-        { name: 'Retrofit', icon: <FaCode />, category: 'mobile' },
-        { name: 'Kotlin', icon: <SiKotlin />, category: 'mobile' },
+        { name: 'Android Studio', icon: <SiAndroidstudio style={{ color: "#3DDC84" }} />, category: 'mobile' },
+        { name: 'Jetpack', icon: <FaCode style={{ color: "#4285F4" }} />, category: 'mobile' },
+        { name: 'Retrofit', icon: <FaCode style={{ color: "#FF5733" }} />, category: 'mobile' },
+        { name: 'Kotlin', icon: <SiKotlin style={{ color: "#7F52FF" }} />, category: 'mobile' },
         
         // Databases
-        { name: 'MongoDB', icon: <SiMongodb />, category: 'databases' },
-        { name: 'PostgreSQL', icon: <SiPostgresql />, category: 'databases' },
-        { name: 'MySQL', icon: <SiMysql />, category: 'databases' },
-        { name: 'NoSQL', icon: <FaDatabase />, category: 'databases' },
-        { name: 'SQLAlchemy', icon: <FaDatabase />, category: 'databases' },
+        { name: 'MongoDB', icon: <SiMongodb style={{ color: "#47A248" }} />, category: 'databases' },
+        { name: 'PostgreSQL', icon: <SiPostgresql style={{ color: "#4169E1" }} />, category: 'databases' },
+        { name: 'MySQL', icon: <SiMysql style={{ color: "#4479A1" }} />, category: 'databases' },
+        { name: 'NoSQL', icon: <FaDatabase style={{ color: "#FF5733" }} />, category: 'databases' },
+        { name: 'SQLAlchemy', icon: <FaDatabase style={{ color: "#D71F00" }} />, category: 'databases' },
         
         // ML/AI
-        { name: 'TensorFlow', icon: <SiTensorflow />, category: 'ml' },
-        { name: 'Scikit-Learn', icon: <FaBrain />, category: 'ml' },
+        { name: 'TensorFlow', icon: <SiTensorflow style={{ color: "#FF6F00" }} />, category: 'ml' },
+        { name: 'Scikit-Learn', icon: <FaBrain style={{ color: "#F7931E" }} />, category: 'ml' },
         
         // Cloud & DevOps
-        { name: 'AWS EC2', icon: <FaAws />, category: 'cloud' },
-        { name: 'AWS S3', icon: <FaAws />, category: 'cloud' },
-        { name: 'AWS Lambda', icon: <FaAws />, category: 'cloud' },
-        { name: 'AWS CloudWatch', icon: <FaAws />, category: 'cloud' },
-        { name: 'Docker', icon: <FaDocker />, category: 'cloud' },
-        { name: 'Kubernetes', icon: <FaCloud />, category: 'cloud' },
-        { name: 'Jenkins', icon: <FaJenkins />, category: 'cloud' },
+        { name: 'AWS EC2', icon: <FaAws style={{ color: "#FF9900" }} />, category: 'cloud' },
+        { name: 'AWS S3', icon: <FaAws style={{ color: "#FF9900" }} />, category: 'cloud' },
+        { name: 'AWS Lambda', icon: <FaAws style={{ color: "#FF9900" }} />, category: 'cloud' },
+        { name: 'AWS CloudWatch', icon: <FaAws style={{ color: "#FF9900" }} />, category: 'cloud' },
+        { name: 'Docker', icon: <FaDocker style={{ color: "#2496ED" }} />, category: 'cloud' },
+        { name: 'Kubernetes', icon: <FaCloud style={{ color: "#326CE5" }} />, category: 'cloud' },
+        { name: 'Jenkins', icon: <FaJenkins style={{ color: "#D24939" }} />, category: 'cloud' },
         
         // Tools
-        { name: 'Git', icon: <FaTools />, category: 'tools' },
-        { name: 'Jira', icon: <SiJira />, category: 'tools' },
-        { name: 'Postman', icon: <FaTools />, category: 'tools' },
-        { name: 'Docker', icon: <FaDocker />, category: 'tools' },
-        { name: 'Jenkins', icon: <FaJenkins />, category: 'tools' },
+        { name: 'Git', icon: <FaTools style={{ color: "#F05032" }} />, category: 'tools' },
+        { name: 'Jira', icon: <SiJira style={{ color: "#0052CC" }} />, category: 'tools' },
+        { name: 'Postman', icon: <FaTools style={{ color: "#FF6C37" }} />, category: 'tools' },
+        { name: 'Docker', icon: <FaDocker style={{ color: "#2496ED" }} />, category: 'tools' },
+        { name: 'Jenkins', icon: <FaJenkins style={{ color: "#D24939" }} />, category: 'tools' },
         
         // Soft Skills
-        { name: 'Leadership', icon: <FaUsers />, category: 'soft' },
-        { name: 'Teamwork', icon: <FaUsers />, category: 'soft' },
-        { name: 'Communication', icon: <FaComments />, category: 'soft' },
-        { name: 'Problem Solving', icon: <FaTools />, category: 'soft' },
-        { name: 'Adaptability', icon: <FaUsers />, category: 'soft' },
-        { name: 'Critical Thinking', icon: <FaBrain />, category: 'soft' },
-        { name: 'Time Management', icon: <FaTools />, category: 'soft' },
-        { name: 'Creativity', icon: <FaBrain />, category: 'soft' },
+        { name: 'Leadership', icon: <FaUsers style={{ color: "#4B5563" }} />, category: 'soft' },
+        { name: 'Teamwork', icon: <FaUsers style={{ color: "#4B5563" }} />, category: 'soft' },
+        { name: 'Communication', icon: <FaComments style={{ color: "#4B5563" }} />, category: 'soft' },
+        { name: 'Problem Solving', icon: <FaTools style={{ color: "#4B5563" }} />, category: 'soft' },
+        { name: 'Adaptability', icon: <FaUsers style={{ color: "#4B5563" }} />, category: 'soft' },
+        { name: 'Critical Thinking', icon: <FaBrain style={{ color: "#4B5563" }} />, category: 'soft' },
+        { name: 'Time Management', icon: <FaTools style={{ color: "#4B5563" }} />, category: 'soft' },
+        { name: 'Creativity', icon: <FaBrain style={{ color: "#4B5563" }} />, category: 'soft' },
     ];
 
     // Filter skills based on active category
@@ -194,7 +194,7 @@ const Skills = () => {
                                 data-animate="scale-in"
                                 data-delay={700 + (index % 12) * 50}
                             >
-                                <div className="text-sm md:text-2xl text-teal mb-0.5 md:mb-2 pulse">
+                                <div className="text-sm md:text-2xl mb-0.5 md:mb-2 pulse">
                                     {skill.icon}
                                 </div>
                                 <h3 className="text-xxs md:text-sm font-semibold text-navy truncate w-full">

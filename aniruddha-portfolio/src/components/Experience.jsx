@@ -93,7 +93,7 @@ const Experience = () => {
         };
     }, []);
 
-    // Work Experience Data
+    // Work Experience Data with narrative paragraphs instead of bullet points
     const workExperience = [
         {
             title: "Software Engineer",
@@ -101,12 +101,7 @@ const Experience = () => {
             location: "Pune, India",
             duration: "July 2023 - August 2024",
             logo: "/aniruddha-portfolio/images/atos-logo.jpeg",
-            description: [
-                "Engineered 15+ RESTful APIs and microservices using Spring Boot and PostgreSQL for an employee portal, optimizing database queries to support 1,000+ daily interactions and reduce new-hire onboarding time from 4 weeks to 2.5 weeks.",
-                "Crafted responsive UI components with React.js and TypeScript, connecting APIs via Axios and managing state with Redux, improving average page load time from 3.4s to 2.5s and driving engagement with 2000+ weekly active sessions.",
-                "Adopted Test-Driven Development with JUnit to write unit and regression test suites validating stability of 10+ backend services and conducted integration testing with Postman to prevent regressions in production.",
-                "Deployed containerized applications on AWS EC2 with Docker and Kubernetes, streamlined Jenkins CI/CD pipelines with parallel builds and lightweight Docker images, reducing deployment time from approximately 25 minutes to under 8 minutes."
-            ]
+            description: "As a Software Engineer at Atos, I led the development of a comprehensive employee portal that streamlined internal operations. I architected and built 15+ RESTful APIs and microservices using Spring Boot and PostgreSQL, focusing on performance optimization that reduced new-hire onboarding time by nearly 40%. My frontend work with React.js and TypeScript delivered a responsive and intuitive user interface, connected to backend services via Axios with Redux for state management. This improved user engagement significantly while cutting page load times by 26%.\n\nI championed Test-Driven Development practices, implementing unit and regression test suites with JUnit that validated the stability of all backend services. My work extended to DevOps, where I containerized applications using Docker and deployed them on AWS EC2 with Kubernetes. By optimizing Jenkins CI/CD pipelines with parallel builds and lightweight Docker images, I reduced deployment time from 25 minutes to under 8 minutes, allowing for more frequent and reliable releases."
         },
         {
             title: "Software Engineer Intern",
@@ -114,11 +109,7 @@ const Experience = () => {
             location: "Pune, India",
             duration: "January 2023 - June 2023",
             logo: "/aniruddha-portfolio/images/ai-logo.png",
-            description: [
-                "Developed and deployed machine learning workflows leveraging PyTorch, SQLAlchemy, and PostgreSQL to analyze over 90K customer interactions and two years of sales data, enabling client teams to identify and pursue two new service opportunities.",
-                "Devised a transformer-based text summarization service with FastAPI, Docker, and Redis, automating review of 8,000+ customer support tickets and feedback forms per quarter, saving 10 hours per week for internal operations teams.",
-                "Orchestrated asynchronous data pipelines with Celery and RabbitMQ to process daily campaign analytics and run 100+ batch model predictions weekly and coordinated project timelines in Jira across 3 cross-functional teams to improve response accuracy."
-            ]
+            description: "During my internship at Aiadventures LLP, I immersed myself in machine learning and data engineering, developing sophisticated workflows that transformed business operations. Using PyTorch, SQLAlchemy, and PostgreSQL, I built systems to analyze over 90,000 customer interactions and two years of sales data. This deep analysis enabled client teams to identify and successfully pursue two new service opportunities, directly contributing to business growth.\n\nI also designed and implemented a transformer-based text summarization service using FastAPI, Docker, and Redis. This tool automated the review process for thousands of customer support tickets and feedback forms each quarter, saving internal operations teams approximately 10 hours per week. One of my key contributions was building asynchronous data pipelines with Celery and RabbitMQ to process daily campaign analytics and run batch model predictions. Throughout the internship, I coordinated with cross-functional teams using Jira to improve model accuracy and ensure all deliverables met business objectives."
         },
         {
             title: "Student Intern",
@@ -126,11 +117,7 @@ const Experience = () => {
             location: "Remote",
             duration: "January 2022 - May 2022",
             logo: "/aniruddha-portfolio/images/cq-logo.jpeg",
-            description: [
-                "Selected through Code Quotient's Super Coders competition to study and implement full stack development, OOPs concepts & DSA concepts.",
-                "Developed applications using JavaScript and Node.js while implementing data structures and algorithms to solve complex programming challenges.",
-                "Collaborated with peers on software development projects, practicing object-oriented programming principles and code optimization techniques."
-            ]
+            description: "At CodeQuotient, I was selected through their competitive Super Coders program, which recognized promising students with strong programming potential. This internship provided me with intensive training in full-stack development principles, object-oriented programming concepts, and advanced data structures and algorithms. I developed multiple web applications using JavaScript and Node.js, applying theoretical knowledge to solve complex programming challenges in real-world scenarios.\n\nWorking in a collaborative remote environment, I partnered with peers on software development projects that emphasized code optimization and best practices. I gained valuable experience in understanding software architecture principles, writing clean and maintainable code, and implementing efficient algorithms. This experience laid the foundation for my approach to software development, emphasizing both technical excellence and practical problem-solving."
         },
         {
             title: "Project Intern",
@@ -138,11 +125,7 @@ const Experience = () => {
             location: "Pune, India",
             duration: "September 2021 - December 2021",
             logo: "/aniruddha-portfolio/images/zensar-logo.jpg",
-            description: [
-                "Participated in the software development lifecycle using Agile methodologies, assisting in requirements gathering and sprint planning for web application projects.",
-                "Contributed to front-end development using HTML, CSS, and JavaScript, implementing responsive design principles and improving user interface components.",
-                "Gained hands-on experience with version control using Git and collaborated with development teams to understand industry-standard coding practices."
-            ]
+            description: "My first professional experience at Zensar Technologies introduced me to formal software development methodologies in an enterprise setting. I participated in the complete software development lifecycle using Agile methodologies, where I assisted in requirements gathering sessions and sprint planning meetings for web application projects. This gave me insight into how large-scale projects are managed and executed in a professional environment.\n\nI contributed to front-end development using HTML, CSS, and JavaScript, implementing responsive design principles that improved user interface components across different screen sizes. The internship also provided hands-on experience with version control using Git, where I learned branching strategies, collaborative coding practices, and code review processes. Working alongside experienced developers helped me understand industry-standard coding practices and set the foundation for my software engineering career."
         }
     ];
 
@@ -225,7 +208,19 @@ const Experience = () => {
                                         onTouchStart={() => handleTouchStart(index)}
                                         onTouchEnd={handleTouchEnd}
                                     >
+                                        {/* Timeline Connecting Line - Hidden on mobile */}
+                                        {index < workExperience.length - 1 && (
+                                            <div className="absolute left-2 md:left-2.5 top-6 bottom-0 w-px bg-teal/30 hidden md:block"></div>
+                                        )}
+
                                         <div className="flex">
+                                            {/* Timeline Circle - Hidden on mobile */}
+                                            <div className="relative z-10 mr-2 md:mr-4 hidden md:block">
+                                                <div className="w-4 h-4 md:w-5 md:h-5 bg-cream border border-teal rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                                                    <div className="w-1.5 h-1.5 bg-teal rounded-full animate-pulse"></div>
+                                                </div>
+                                            </div>
+
                                             {/* Content Card */}
                                             <div 
                                                 className={`bg-lightNavy shadow-lg rounded-lg flex-1 z-10 overflow-hidden transform transition-all duration-500 ${isItemExpanded(index) ? 'shadow-xl ring-1 ring-teal/30' : 'hover:shadow-lg'}`}
@@ -296,25 +291,27 @@ const Experience = () => {
                                                     </div>
                                                 </div>
 
-                                                {/* Expandable Description */}
+                                                {/* Expandable Description - Now as paragraphs instead of bullet points */}
                                                 <div 
                                                     className={`transition-all duration-500 overflow-hidden ${
-                                                        isItemExpanded(index) ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+                                                        isItemExpanded(index) ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
                                                     }`}
                                                 >
-                                                    <ul className="space-y-1 md:space-y-2 text-xs md:text-base p-3 md:p-6 pt-2 md:pt-4">
-                                                        {exp.description.map((item, i) => (
-                                                            <li key={i} className="flex text-slate transform transition-all duration-300" 
-                                                                style={{ 
-                                                                    transitionDelay: `${i * 100}ms`,
-                                                                    opacity: isItemExpanded(index) ? 1 : 0,
-                                                                    transform: isItemExpanded(index) ? 'translateX(0)' : 'translateX(-20px)'
-                                                                }}>
-                                                                <span className="text-teal mr-1 md:mr-2 flex-shrink-0">▹</span>
-                                                                <span>{item}</span>
-                                                            </li>
-                                                        ))}
-                                                    </ul>
+                                                    <div className="p-3 md:p-6 pt-2 md:pt-4">
+                                                        <div 
+                                                            className="text-slate text-xs md:text-sm leading-relaxed transform transition-all duration-300" 
+                                                            style={{ 
+                                                                opacity: isItemExpanded(index) ? 1 : 0,
+                                                                transform: isItemExpanded(index) ? 'translateY(0)' : 'translateY(20px)'
+                                                            }}
+                                                        >
+                                                            {exp.description.split('\n\n').map((paragraph, i) => (
+                                                                <p key={i} className="mb-3">
+                                                                    {paragraph}
+                                                                </p>
+                                                            ))}
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -332,7 +329,19 @@ const Experience = () => {
                                         onTouchStart={() => handleTouchStart(`edu-${index}`)}
                                         onTouchEnd={handleTouchEnd}
                                     >
+                                        {/* Timeline Connecting Line - Hidden on mobile */}
+                                        {index < education.length - 1 && (
+                                            <div className="absolute left-2 md:left-2.5 top-6 bottom-0 w-px bg-teal/30 hidden md:block"></div>
+                                        )}
+
                                         <div className="flex">
+                                            {/* Timeline Circle - Hidden on mobile */}
+                                            <div className="relative z-10 mr-2 md:mr-4 hidden md:block">
+                                                <div className="w-4 h-4 md:w-5 md:h-5 bg-cream border border-teal rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                                                    <div className="w-1.5 h-1.5 bg-teal rounded-full animate-pulse"></div>
+                                                </div>
+                                            </div>
+                                            
                                             {/* Content Card */}
                                             <div 
                                                 className={`bg-lightNavy shadow-lg rounded-lg flex-1 z-10 overflow-hidden transform transition-all duration-500 ${isItemExpanded(`edu-${index}`) ? 'shadow-xl ring-1 ring-teal/30' : 'hover:shadow-lg'}`}
@@ -403,7 +412,7 @@ const Experience = () => {
                                                     </div>
                                                 </div>
 
-                                                {/* Expandable Description */}
+                                                {/* Expandable Description - Keeping bullets for education */}
                                                 <div 
                                                     className={`transition-all duration-500 overflow-hidden ${
                                                         isItemExpanded(`edu-${index}`) ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'

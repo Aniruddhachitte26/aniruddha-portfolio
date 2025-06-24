@@ -31,7 +31,7 @@ const Navbar = () => {
             }
 
             // Determine which section is currently in view
-            const sections = ['home', 'experience', 'projects', 'skills', 'contact'];
+            const sections = ['home', 'about', 'experience', 'projects', 'skills', 'contact'];
             let currentSection = 'home';
 
             for (const section of sections) {
@@ -55,13 +55,15 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Updated nav links: Added About, removed Resume
     const navLinks = [
         { name: 'Home', url: '#home' },
+        { name: 'About', url: '#about' },
         { name: 'Experience', url: '#experience' },
         { name: 'Projects', url: '#projects' },
         { name: 'Skills', url: '#skills' },
-        { name: 'Contact', url: '#contact' },
-        { name: 'Resume', url: 'https://drive.google.com/file/d/1ADl_6gpBAsB5pzoNa0HSGBrkJSOPPAi7/view?usp=sharing' }  
+        // {name: 'Achievements', url: '#achievements'},
+        { name: 'Contact', url: '#contact' }
     ];
 
     const scrollToSection = (sectionId) => {
@@ -69,44 +71,38 @@ const Navbar = () => {
         if (element) {
             setMenuOpen(false);
             window.scrollTo({
-                top: element.offsetTop - 80, // Restored to original offset
+                top: element.offsetTop - 80,
                 behavior: 'smooth'
             });
         }
     };
 
     return (
-        <nav className={`fixed w-full z-50 py-2 md:py-4 px-4 md:px-8 bg-cream transition-shadow duration-300 ${
-            isScrolled && activeSection !== 'home' ? 'shadow-md' : ''
+        <nav className={`fixed w-full z-50 py-2 md:py-4 px-4 md:px-8 bg-cream transition-all duration-300 ${
+            isScrolled && activeSection !== 'home' ? 'shadow-md backdrop-blur-sm' : ''
         }`}>
-            <div className="max-w-7xl mx-auto flex justify-between items-center">
-                {/* Logo - Restored original size */}
-                <div className="text-xl md:text-2xl font-poppins font-bold">
-                    <a href="#home" className="text-navy hover-text-glow">
+            <div className="max-w-6xl mx-auto flex justify-between items-center">
+                {/* Logo */}
+                <div className="text-3xl md:text-xl font-poppins font-bold">
+                    <a href="#home" className="text-navy hover:text-teal transition-colors">
                         AC
                     </a>
                 </div>
 
-                {/* Desktop Navigation - Restored original sizes */}
+                {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center space-x-8">
                     {navLinks.map((link, index) => (
                         <div key={index} className="relative">
-                            {link.name === 'Resume' ? (
-                                <a
-                                    href={link.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="font-inter text-navy hover:text-teal transition-colors hover-text-glow"
-                                >
-                                    {link.name}
-                                </a>
-                            ) : (
-                                <button
-                                    onClick={() => scrollToSection(link.url.substring(1))}
-                                    className="font-inter text-navy hover:text-teal transition-colors hover-text-glow"
-                                >
-                                    {link.name}
-                                </button>
+                            <button
+                                onClick={() => scrollToSection(link.url.substring(1))}
+                                className={`font-inter text-navy hover:text-teal transition-colors text-8sm${
+                                    activeSection === link.url.substring(1) ? 'text-teal' : ''
+                                }`}
+                            >
+                                {link.name}
+                            </button>
+                            {activeSection === link.url.substring(1) && (
+                                <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-teal rounded-full" />
                             )}
                         </div>
                     ))}
@@ -124,75 +120,58 @@ const Navbar = () => {
                 </div>
             </div>
 
-            {/* Mobile Menu - with centered text and animations */}
+            {/* Mobile Menu - with side panel animation */}
             {menuOpen && (
                 <>
                     {/* Overlay to click outside to close */}
                     <div 
-                        className="fixed inset-0 bg-navy/20 backdrop-blur-sm z-40 md:hidden"
+                        className="fixed inset-0 bg-navy/20 backdrop-blur-sm z-40 md:hidden animate-fadeIn"
                         onClick={() => setMenuOpen(false)}
                     ></div>
                     
                     {/* Left side menu panel with animation */}
                     <div
-                        className="fixed top-0 left-0 h-auto bg-cream shadow-xl z-50 md:hidden transform transition-transform duration-300 ease-in-out w-3/4 max-w-xs"
-                        style={{
-                            animation: "slideInLeft 0.3s ease-in-out"
-                        }}
+                        className="fixed top-0 left-0 h-screen-1/2 bg-cream shadow-xl z-50 md:hidden w-3/4 max-w-xs animate-slideInLeft"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        {/* Close button in corner with animation */}
-                        <div className="absolute top-4 right-4 p-2 animate-fadeIn" style={{ animationDuration: '0.5s' }}>
+                        {/* Close button in corner */}
+                        <div className="absolute top-4 right-4 p-2 animate-fadeIn">
                             <button
                                 onClick={() => setMenuOpen(false)}
-                                className="w-8 h-8 flex items-center justify-center rounded-full bg-teal/10 text-navy hover:bg-teal/20 transition-colors hover:rotate-90 transition-transform duration-300"
+                                className="w-8 h-8 flex items-center justify-center rounded-full bg-teal/10 text-navy hover:bg-teal/20 transition-colors"
                             >
                                 <FaTimes size={16} />
                             </button>
                         </div>
                         
-                        {/* Menu header with animation */}
+                        {/* Menu header */}
                         <div className="pt-6 pb-4 px-6 border-b border-slate/10">
-                            <div 
-                                className="text-2xl font-poppins font-bold text-navy text-center"
-                                style={{
-                                    animation: "fadeInDown 0.5s ease-out forwards"
-                                }}
-                            >
+                            <div className="text-2xl text-center font-poppins font-bold text-navy animate-fadeInDown">
                                 Menu
                             </div>
                         </div>
                         
-                        {/* Menu links - centered with animations */}
-                        <div className="py-6 px-4 pb-8">
-                            <div className="flex flex-col space-y-4">
+                        {/* Menu links - with animations */}
+                        <div className="py-3 px-2 pb-4 ">
+                            <div className="flex flex-col space-y-2 ">
                                 {navLinks.map((link, index) => (
                                     <div 
                                         key={index} 
-                                        className="px-2 py-2 rounded-lg hover:bg-teal/10 transition-colors text-center"
+                                        className={` rounded-lg hover:bg-teal/10 transition-colors animate-slideInRight ${
+                                            activeSection === link.url.substring(1) ? 'bg-teal/10' : ''
+                                        }`}
                                         style={{
-                                            animation: `slideInRight 0.4s ease-out forwards`,
-                                            animationDelay: `${index * 0.08}s`,
-                                            opacity: 0
+                                            animationDelay: `${index * 0.08}s`
                                         }}
                                     >
-                                        {link.name === 'Resume' ? (
-                                            <a
-                                                href={link.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex items-center justify-center text-lg font-inter text-navy hover:text-teal transition-colors"
-                                            >
-                                                <span>{link.name}</span>
-                                            </a>
-                                        ) : (
-                                            <button
-                                                onClick={() => scrollToSection(link.url.substring(1))}
-                                                className="flex items-center justify-center text-lg font-inter text-navy w-full text-center hover:text-teal transition-colors"
-                                            >
-                                                <span>{link.name}</span>
-                                            </button>
-                                        )}
+                                        <button
+                                            onClick={() => scrollToSection(link.url.substring(1))}
+                                            className={`py-2 px-0 text-center  text-lg font-inter w-full ${
+                                                activeSection === link.url.substring(1) ? 'text-teal' : 'text-navy'
+                                            } hover:text-teal transition-colors`}
+                                        >
+                                            <span>{link.name}</span>
+                                        </button>
                                     </div>
                                 ))}
                             </div>
@@ -205,46 +184,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-// Add these keyframes to your CSS file
-/*
-@keyframes slideInLeft {
-    from {
-        transform: translateX(-100%);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideInRight {
-    from {
-        transform: translateX(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInDown {
-    from {
-        transform: translateY(-20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-*/

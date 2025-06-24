@@ -22,14 +22,9 @@ const Footer = () => {
             url: 'https://www.researchgate.net/profile/Aniruddha-Chitte'
         },
         {
-            name: 'Twitter',
-            icon: <FaTwitter />,
-            url: '#'
-        },
-        {
             name: 'Email',
             icon: <FaEnvelope />,
-            url: 'mailto:aniruddhachitte2001@gmail.com'
+            url: 'mailto:aniruddhachitte06@gmail.com'
         }
     ];
 
@@ -77,7 +72,7 @@ const Footer = () => {
 
                         {/* Footer Nav Links - More compact for mobile */}
                         <div className="flex flex-wrap justify-center gap-x-4 md:gap-x-8 gap-y-1 md:gap-y-2 mb-4 md:mb-8 text-xs md:text-sm font-medium">
-                            {['Home', 'Experience', 'Projects', 'Skills', 'Contact', 'Resume'].map((item, index) => (
+                            {['Home', 'About', 'Experience', 'Projects', 'Skills', 'Contact'].map((item, index) => (
                                 <a
                                     key={index}
                                     href={item === 'Resume' ? '/resume.pdf' : `#${item.toLowerCase()}`}
