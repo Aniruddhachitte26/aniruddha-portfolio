@@ -71,7 +71,7 @@ const Navbar = () => {
         if (element) {
             setMenuOpen(false);
             window.scrollTo({
-                top: element.offsetTop - 80,
+                top: element.offsetTop - 40,
                 behavior: 'smooth'
             });
         }

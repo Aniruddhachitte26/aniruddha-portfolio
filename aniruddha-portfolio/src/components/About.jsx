@@ -48,7 +48,7 @@ const About = () => {
     // Marquee animation for left to right
     const marqueeLeftToRight = {
         animate: {
-            x: ["0%", "-90%"],
+            x: ["0%", "-80%"],
             transition: {
                 x: {
                     repeat: Infinity,
@@ -64,7 +64,7 @@ const About = () => {
     // Marquee animation for right to left
     const marqueeRightToLeft = {
         animate: {
-            x: ["-90%", "0%"],
+            x: ["-80%", "0%"],
             transition: {
                 x: {
                     repeat: Infinity,
@@ -85,7 +85,7 @@ const About = () => {
                 x: {
                     repeat: Infinity,
                     repeatType: "loop",
-                    duration: 30,
+                    duration: 60,
                     ease: "linear",
                     repeatDelay: 0
                 }
@@ -100,7 +100,7 @@ const About = () => {
                 x: {
                     repeat: Infinity,
                     repeatType: "loop",
-                    duration: 30,
+                    duration: 60,
                     ease: "linear",
                     repeatDelay: 0
                 }
@@ -199,24 +199,25 @@ const About = () => {
                                     <span className="text-xxs text-teal font-medium ml-2 whitespace-nowrap">2019-2023</span>
                                 </div>
                             </div>
+                            {/* Stats Row */}
+                            <div className="grid grid-cols-2 gap-2 mb-4">
+                                <div className="bg-white rounded-lg p-2.5 text-center shadow-sm">
+                                    <h3 className="text-lg font-bold text-navy">1.5+</h3>
+                                    <p className="text-xxs text-slate">Years Experience</p>
+                                </div>
+                                <div className="bg-white rounded-lg p-2.5 text-center shadow-sm">
+                                    <h3 className="text-lg font-bold text-navy">10+</h3>
+                                    <p className="text-xxs text-slate">Academic Projects</p>
+                                </div>
+                            </div>
                         </div>
 
-                        {/* Stats Row */}
-                        <div className="grid grid-cols-2 gap-3 mb-4">
-                            <div className="bg-white rounded-lg p-2.5 text-center shadow-sm">
-                                <h3 className="text-lg font-bold text-navy">1.5+</h3>
-                                <p className="text-xxs text-slate">Years Experience</p>
-                            </div>
-                            <div className="bg-white rounded-lg p-2.5 text-center shadow-sm">
-                                <h3 className="text-lg font-bold text-navy">10+</h3>
-                                <p className="text-xxs text-slate">Academic Projects</p>
-                            </div>
-                        </div>
+
 
                         {/* Tech Stack for Mobile - Moving Animation */}
                         <div className="mt-4">
                             <h3 className="text-base font-bold mb-3 text-navy text-center">My Stack</h3>
-                            
+
                             {/* First row - left to right */}
                             <div className="mb-2 overflow-hidden">
                                 <motion.div
@@ -286,7 +287,7 @@ const About = () => {
                                     </div>
                                 </div>
                             </div>
-                            
+
                             {/* Experience Card */}
                             <div className="bg-white rounded-lg p-4 shadow-md">
                                 <div className="flex items-start">
@@ -313,7 +314,7 @@ const About = () => {
                                         <h3 className="text-lg font-semibold text-navy">2019-2023</h3>
                                         <h4 className="text-base font-medium text-navy">Savitribai Phule Pune University</h4>
                                         <p className="text-sm text-teal">
-                                            BTech in Electronics and Telecommunication
+                                            B.Tech in Electronics and Telecommunication
                                         </p>
                                     </div>
                                 </div>
