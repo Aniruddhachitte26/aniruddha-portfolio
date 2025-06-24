@@ -205,8 +205,8 @@ const Experience = () => {
                                         className="relative mb-6 md:mb-8"
                                         onMouseEnter={() => handleMouseEnter(index)}
                                         onMouseLeave={handleMouseLeave}
-                                        onTouchStart={() => handleTouchStart(index)}
-                                        onTouchEnd={handleTouchEnd}
+                                        // onTouchStart={() => handleTouchStart(index)}
+                                        // onTouchEnd={handleTouchEnd}
                                     >
                                         {/* Timeline Connecting Line - Hidden on mobile */}
                                         {index < workExperience.length - 1 && (
@@ -326,8 +326,8 @@ const Experience = () => {
                                         className="relative mb-6 md:mb-8"
                                         onMouseEnter={() => handleMouseEnter(`edu-${index}`)}
                                         onMouseLeave={handleMouseLeave}
-                                        onTouchStart={() => handleTouchStart(`edu-${index}`)}
-                                        onTouchEnd={handleTouchEnd}
+                                        // onTouchStart={() => handleTouchStart(`edu-${index}`)}
+                                        // onTouchEnd={handleTouchEnd}
                                     >
                                         {/* Timeline Connecting Line - Hidden on mobile */}
                                         {index < education.length - 1 && (
